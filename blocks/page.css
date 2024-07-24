@@ -7,6 +7,16 @@ body {
   margin: 0 auto;
 }
 
+.container {
+  max-width: 880px;
+}
+
 @media screen and (max-width: 720px) {
-  max-width: 320px;
+  .page {
+    max-width: 320px;
+  }
+
+  .container {
+    max-width: 282px;
+  }
 }
