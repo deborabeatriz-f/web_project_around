@@ -1,1 +1,5 @@
-# Tripleten web_project_around
+# Tripleten - Web Project Around
+
+## Description:
+
+### GitHub Page:
