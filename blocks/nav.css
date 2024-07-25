@@ -1,0 +1,31 @@
+.nav {
+  border-bottom: 1px solid rgba(84, 84, 84, 1);
+  /* margin: 45px 200px 40px; */
+  margin-top: 45px;
+  margin-bottom: 40px;
+}
+
+.nav__image {
+  max-width: 173px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding-bottom: 41px;
+}
+
+@media screen and (max-width: 720px) {
+  .nav {
+    margin: 28px 0 42px;
+    max-width: 320px;
+  }
+
+  .nav__image {
+    max-width: 126px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding-bottom: 32px;
+    padding-left: 27px;
+  }
+
+}
