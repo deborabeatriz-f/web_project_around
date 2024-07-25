@@ -1,3 +1,58 @@
-@media screen and (max-width: 720px) {
+.grid {
+  display: grid;
+  grid-template-areas:
+    "card card card"
+    "card card card";
+}
 
+.grid__card {
+  color: rgba(0, 0, 0, 1);
+  background-color: rgba(255, 255, 255, 1);
+  max-width: 282px;
+  margin: 10px 8px;
+  border-radius: 3%;
+}
+
+.grid__card-image {
+  max-width: 282px;
+  width: 100%;
+}
+
+.grid__card-text {
+  display: flex;
+  justify-content: center;
+}
+
+.grid__card-title {
+}
+
+.grid__button-heart {
+  border: none;
+  background-color: transparent;
+}
+
+.grid__heart-image {
+}
+
+@media screen and (max-width: 720px) {
+  .grid {
+  }
+
+  .grid__card {
+  }
+
+  .grid__card-image {
+  }
+
+  .grid__card-text {
+  }
+
+  .grid__card-title {
+  }
+
+  .grid__button-heart {
+  }
+
+  .grid__heart-image {
+  }
 }
