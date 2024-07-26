@@ -31,14 +31,17 @@
 
 .grid__button-heart {
   border: none;
-  background-color: transparent;
-}
-
-.grid__heart-image {
+  background: transparent url("../images/heart_icon.png") center no-repeat;
+  border: none;
+  width: 21px;
+  height: 19px;
 }
 
 @media screen and (max-width: 720px) {
   .grid {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
   .grid__card {
@@ -54,8 +57,5 @@
   }
 
   .grid__button-heart {
-  }
-
-  .grid__heart-image {
   }
 }
