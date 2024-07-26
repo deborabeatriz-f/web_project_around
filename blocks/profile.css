@@ -19,7 +19,7 @@
 
 .profile__card {
   margin-top: 22px;
-  /* margin: 22px 165px 21px 30px; */
+
   display: grid;
   grid-template-areas:
     "title button"
@@ -37,13 +37,10 @@
 .profile__button-edit {
   width: 24px;
   height: 24px;
-  background-color: transparent;
+  background: transparent url("../images/edit_button.png") center no-repeat;
   border: none;
   margin-top: 15px;
   padding-left: 18px;
-}
-
-.profile__edit-image {
   border: 1px solid rgba(255, 255, 255, 1);
 }
 
@@ -54,18 +51,13 @@
 }
 
 .profile__button-add {
+  background: transparent url("../images/add_button.png") center no-repeat;
   width: 150px;
   height: 50px;
-  background-color: transparent;
-  border: none;
   margin-left: 165px;
   margin-top: 35px;
-}
-
-.profile__add-image {
   border: 2px solid rgba(255, 255, 255, 1);
 }
-
 
 @media screen and (max-width: 720px) {
   .profile {
@@ -102,11 +94,9 @@
   }
 
   .profile__button-add {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 282px;
+    width: 100%;
+    max-width: 282px;
     height: 50px;
-    margin: 36px 19px;
+    margin: 36px auto 0;
   }
 }
