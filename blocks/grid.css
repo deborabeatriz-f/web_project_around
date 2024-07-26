@@ -24,6 +24,9 @@
 }
 
 .grid__card-title {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .grid__button-heart {
