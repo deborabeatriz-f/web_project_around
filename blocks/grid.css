@@ -43,6 +43,12 @@
   height: 19px;
 }
 
+.grid__button-heart:hover {
+  opacity: 50%;
+  cursor: pointer;
+  transition: 200ms ease-in-out;
+}
+
 @media screen and (max-width: 720px) {
   .grid {
     display: flex;
