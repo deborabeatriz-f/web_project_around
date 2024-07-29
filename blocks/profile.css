@@ -19,6 +19,7 @@
 
 .profile__card {
   margin-top: 22px;
+  margin-right: 165px;
 
   display: grid;
   grid-template-areas:
@@ -39,12 +40,12 @@
   height: 24px;
   background: transparent url("../images/edit_button.png") center no-repeat;
   margin-top: 15px;
-  padding-left: 18px;
+  /* padding-left: 18px; */
   border: 1px solid rgba(255, 255, 255, 1);
 }
 
 .profile__subtitle {
-  margin: 0;
+  margin: 16px 0 0;
   font-size: 18px;
   font-weight: 400;
 }
@@ -53,7 +54,7 @@
   background: transparent url("../images/add_button.png") center no-repeat;
   width: 150px;
   height: 50px;
-  margin-left: 165px;
+  /* margin-left: 165px; */
   margin-top: 35px;
   border: 2px solid rgba(255, 255, 255, 1);
 }
@@ -85,11 +86,14 @@
   .profile__button-edit {
     width: 18px;
     height: 18px;
+    padding-left: 10px;
+    margin-top: 4px;
   }
 
   .profile__subtitle {
     font-size: 14px;
     text-align: center;
+    margin-top: 14px;
   }
 
   .profile__button-add {
