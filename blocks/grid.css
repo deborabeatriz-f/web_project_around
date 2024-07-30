@@ -38,7 +38,6 @@
 .grid__button-heart {
   border: none;
   background: transparent url("../images/heart_icon.png") center no-repeat;
-  border: none;
   width: 21px;
   height: 19px;
 }
@@ -47,6 +46,13 @@
   opacity: 50%;
   cursor: pointer;
   transition: 200ms ease-in-out;
+}
+
+.heart-clicked {
+  border: none;
+  background: transparent url("../images/heart-clicked.png") center no-repeat;
+  width: 21px;
+  height: 19px;
 }
 
 @media screen and (max-width: 720px) {
