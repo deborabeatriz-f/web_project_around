@@ -24,7 +24,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 25px 15px 31px 21px;
+  padding: 25px 21px 31px 15px;
   margin: 0;
   height: 30px;
   border-radius: 0 0 10px 10px;
@@ -42,9 +42,10 @@
 
 .grid__button-heart {
   border: none;
-  background: transparent url("../images/heart_icon.png") center no-repeat;
+  background: transparent url("../images/heart_icon.png") no-repeat;
   width: 21px;
   height: 19px;
+  background-size: contain;
 }
 
 .grid__button-heart:hover {
@@ -55,9 +56,10 @@
 
 .heart-clicked {
   border: none;
-  background: transparent url("../images/heart-clicked.png") center no-repeat;
+  background: transparent url("../images/heart-clicked.png") no-repeat;
   width: 21px;
   height: 19px;
+  background-size: contain;
 }
 
 @media screen and (max-width: 1024px) {
