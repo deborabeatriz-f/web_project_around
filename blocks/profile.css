@@ -72,6 +72,10 @@
   transition: 200ms ease-in-out;
 }
 
+@media screen and (max-width: 1024px){
+
+}
+
 @media screen and (max-width: 720px) {
   .profile {
     margin-top: 42px;
