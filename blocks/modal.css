@@ -1,7 +1,16 @@
 .modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  display: none;
+}
+
+.modal__card {
   background: rgba(255, 255, 255, 1);
   max-width: 430px;
-  max-width: 100%;
+  width: 100%;
   margin-top: 34px;
   margin-bottom: 36px;
   margin-inline: 36px;
@@ -27,11 +36,12 @@
 
 .modal__button-close {
   position: absolute;
-  right: 20px;
-  top: 5px;
+  right: -10px;
+  top: -40px;
   font-size: 30px;
   border: none;
   background: transparent;
+  color: white;
 }
 .modal__button-close:hover {
   color: rgba(255, 255, 255, 1);
