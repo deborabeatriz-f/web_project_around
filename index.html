@@ -11,7 +11,30 @@
   </head>
   <body>
     <div class="page">
-      <div class="page__overlay"></div>
+      <!-- POPUP EDIT PROFILE -->
+      <div class="popup"></div>
+
+      <div class="popup__container">
+        <div class="popup__card">
+          <h3 class="popup__title">Editar perfil</h3>
+          <div class="popup__input">
+            <input
+              class="input__text input__text-name"
+              type="text"
+              placeholder="Nome"
+            />
+            <input
+              class="input__text input__text-job"
+              type="text"
+              placeholder="Sobre mim"
+            />
+            <button class="input__submit input__submit-add">Salvar</button>
+          </div>
+          <button class="popup__button-close" draggable="true">&times;</button>
+        </div>
+      </div>
+      <!--  -->
+
       <header class="header page__container">
         <nav class="nav">
           <img
@@ -136,28 +159,6 @@
       <footer class="footer page__container">
         <p>&copy; 2024 Around The U.S.</p>
       </footer>
-
-      <!-- POPUP EDIT PROFILE -->
-      <div class="modal">
-        <div class="modal__card">
-          <h3 class="modal__title">Editar perfil</h3>
-          <div class="modal__input">
-            <input
-              class="input__text input__text-name"
-              type="text"
-              placeholder="Nome"
-            />
-            <input
-              class="input__text input__text-job"
-              type="text"
-              placeholder="Profissão"
-            />
-            <button class="input__submit input__submit-add">Salvar</button>
-          </div>
-          <button class="modal__button-close" draggable="true">&times;</button>
-        </div>
-      </div>
-      <!--  -->
     </div>
     <script src="./scripts/index.js"></script>
   </body>

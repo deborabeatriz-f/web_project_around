@@ -1,23 +1,25 @@
-// PROFILE EDIT BUTTON
-let modal = document.querySelector(".modal");
+// VARIABLES
+let modal = document.querySelector(".popup__container");
 let editButton = document.querySelector(".profile__button-edit");
 let addButton = document.querySelector(".input__submit-add");
-let closeEditButton = document.querySelector(".modal__button-close");
-let page = document.querySelector(".page__overlay");
+let closeEditButton = document.querySelector(".popup__button-close");
+let page = document.querySelector(".popup");
 
+// PROFILE EDIT POPUP OPEN
 function appearEditPopUp() {
   modal.style.display = "block";
-  page.style.display = "block"
+  page.style.display = "block";
 }
 editButton.addEventListener("click", appearEditPopUp);
 
+// PROFILE EDIT POPUP CLOSE
 function closeEditPopUp() {
   modal.style.display = "none";
-   page.style.display = "none";
+  page.style.display = "none";
 }
 closeEditButton.addEventListener("click", closeEditPopUp);
 
-//INSERT HTML PROFILE INFOS FROM EDIT
+// GET PROFILE INFOS FROM INPUT
 function addProfileInfo() {
   let name = document.querySelector(".profile__title");
   let job = document.querySelector(".profile__subtitle");
