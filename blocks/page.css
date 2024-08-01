@@ -14,13 +14,21 @@ body {
   margin: 0 auto;
 }
 
-@media screen and (max-width: 1024px){
-  
+@media screen and (max-width: 1024px) {
+  .page {
+    max-width: 1024px;
+    padding: 0 90px 0 90px;
+  }
+
+  .page__container {
+    max-width: 880px;
+  }
 }
 
 @media screen and (max-width: 720px) {
   .page {
     max-width: 320px;
+    padding: 0 16px 0 16px;
   }
 
   .page__container {

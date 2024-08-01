@@ -1,6 +1,5 @@
 .nav {
   border-bottom: 1px solid rgba(84, 84, 84, 1);
-  /* margin: 45px 200px 40px; */
   margin-top: 45px;
   margin-bottom: 40px;
 }
@@ -13,9 +12,9 @@
   padding-bottom: 41px;
 }
 
-@media screen and (max-width: 1024px){
+/* @media screen and (max-width: 1024px){
 
-}
+} */
 
 @media screen and (max-width: 720px) {
   .nav {
@@ -31,5 +30,4 @@
     padding-bottom: 32px;
     padding-left: 27px;
   }
-
 }
