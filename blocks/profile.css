@@ -76,6 +76,10 @@
 }
 
 @media screen and (max-width: 1024px) {
+  .profile__title {
+    font-size: 32px;
+  }
+
   .profile__subtitle {
     margin: 0;
     max-width: 415px;
@@ -85,7 +89,7 @@
   }
 
   .profile__button-add {
-   margin-left: 120px;
+    margin-left: 20px;
   }
 }
 
