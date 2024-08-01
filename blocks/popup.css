@@ -95,6 +95,10 @@
   padding-bottom: 18px;
 }
 
+.input__submit:hover{
+  opacity: 80%;
+}
+
 /* @media screen and (max-width: 1024px) {
 } */
 
