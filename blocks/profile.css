@@ -31,6 +31,12 @@
   max-width: 373px;
   font-size: 42px;
   font-weight: 500;
+  text-align: left;
+  gap: 0;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .profile__button-edit {
@@ -70,6 +76,17 @@
 }
 
 @media screen and (max-width: 1024px) {
+  .profile__subtitle {
+    margin: 0;
+    max-width: 415px;
+    font-size: 15px;
+    line-height: 21.78px;
+    text-align: left;
+  }
+
+  .profile__button-add {
+   margin-left: 120px;
+  }
 }
 
 @media screen and (max-width: 720px) {

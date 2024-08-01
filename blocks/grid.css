@@ -64,33 +64,24 @@
 
 @media screen and (max-width: 1024px) {
   .grid {
-    /* grid-template-columns: repeat(2, auto); */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 17px 20px;
+    max-width: 580px;
+    margin: 0 auto;
   }
+}
 
-  .grid__card {
-  }
-
-  .grid__card-image {
-  }
+.grid__card {
+  display: flex;
+  flex-direction: column;
+  max-width: 282px;
+  width: 100%;
 }
 
 @media screen and (max-width: 720px) {
   .grid {
     grid-template-columns: 1fr;
-  }
-
-  .grid__card {
-  }
-
-  .grid__card-image {
-  }
-
-  .grid__card-text {
-  }
-
-  .grid__card-title {
-  }
-
-  .grid__button-heart {
+    gap: 20px;
   }
 }
