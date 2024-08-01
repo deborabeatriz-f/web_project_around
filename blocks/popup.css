@@ -20,16 +20,14 @@
   background: rgba(255, 255, 255, 1);
   max-width: 430px;
   width: 100%;
-  margin-top: 34px;
-  margin-bottom: 36px;
-  margin-inline: 36px;
   border-radius: 6px;
   border: 1px solid rgba(0, 0, 0, 1);
   position: absolute;
-  top: 50%;
+  top: 30%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -70%);
   position: relative;
+  border-radius: 10px;
   box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.15);
   animation: 1s drop;
 }
@@ -39,7 +37,7 @@
     top: -100px;
   }
   100% {
-    top: 50%;
+    top: 30%;
   }
 }
 
@@ -63,7 +61,7 @@
   font-weight: 900;
   line-height: 29.05px;
   text-align: left;
-  margin-bottom: 54px;
+  margin: 34px 64px 54px 36px;
   color: rgba(0, 0, 0, 1);
 }
 
@@ -79,12 +77,13 @@
   text-align: left;
   border: none;
   border-bottom: 1px solid rgba(0, 0, 0, 1);
-  margin-bottom: 30px;
+  margin: 0 36px 30px;
   max-width: 358px;
 }
 
 .input__submit {
   max-width: 358px;
+  margin: 18px 36px 36px;
   border-radius: 2px 0px 0px 0px;
   background: rgba(0, 0, 0, 1);
   font-size: 18px;
@@ -92,11 +91,19 @@
   line-height: 21.78px;
   text-align: center;
   color: rgba(255, 255, 255, 1);
-  padding: 14px 124px 18px;
+  padding-top: 14px;
+  padding-bottom: 18px;
 }
 
-@media screen and (max-width: 1024px) {
-}
+/* @media screen and (max-width: 1024px) {
+} */
 
 @media screen and (max-width: 720px) {
+  .popup__card {
+    max-width: 282px;
+  }
+
+  .popup__button-close {
+  right: 5px;
+  top: -40px;
 }
