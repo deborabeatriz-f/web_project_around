@@ -1,10 +1,10 @@
 // VARIABLES
-let modal = document.querySelector(".popup__container");
-let editButton = document.querySelector(".profile__button-edit");
-let addButton = document.querySelector(".input__submit-add");
-let closeEditButton = document.querySelector(".popup__button-close");
-let page = document.querySelector(".popup");
-let popupEditProfile = document.querySelector(".popup__input");
+const modal = document.querySelector(".popup__container");
+const editButton = document.querySelector(".profile__button-edit");
+const addButton = document.querySelector(".input__submit-add");
+const closeEditButton = document.querySelector(".popup__button-close");
+const page = document.querySelector(".popup");
+const popupEditProfile = document.querySelector(".popup__input");
 
 // PROFILE EDIT POPUP OPEN
 function appearEditPopUp() {
@@ -24,10 +24,10 @@ closeEditButton.addEventListener("click", closeEditPopUp);
 function addProfileInfo(event) {
   event.preventDefault();
 
-  let name = document.querySelector(".profile__title");
-  let job = document.querySelector(".profile__subtitle");
-  let addName = document.querySelector(".input__text-name");
-  let addJob = document.querySelector(".input__text-job");
+  const name = document.querySelector(".profile__title");
+  const job = document.querySelector(".profile__subtitle");
+  const addName = document.querySelector(".input__text-name");
+  const addJob = document.querySelector(".input__text-job");
 
   name.textContent = addName.value;
   job.textContent = addJob.value;
@@ -37,7 +37,7 @@ function addProfileInfo(event) {
 popupEditProfile.addEventListener("submit", addProfileInfo);
 
 // HEART(LIKE) BUTTON
-let hearts = document.querySelectorAll("#grid__button-heart");
+const hearts = document.querySelectorAll("#grid__button-heart");
 
 function heartButton(event) {
   let heart = event.target;
