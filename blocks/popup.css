@@ -23,9 +23,9 @@
   border-radius: 6px;
   border: 1px solid rgba(0, 0, 0, 1);
   position: absolute;
-  top: 30%;
+  top: 50%;
   left: 50%;
-  transform: translate(-50%, -70%);
+  transform: translate(-50%, -50%);
   position: relative;
   border-radius: 10px;
   box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.15);
@@ -37,7 +37,7 @@
     top: -100px;
   }
   100% {
-    top: 30%;
+    top: 50%;
   }
 }
 
@@ -95,7 +95,7 @@
   padding-bottom: 18px;
 }
 
-.input__submit:hover{
+.input__submit:hover {
   opacity: 80%;
 }
 
@@ -108,6 +108,7 @@
   }
 
   .popup__button-close {
-  right: 5px;
-  top: -40px;
+    right: 5px;
+    top: -40px;
+  }
 }
