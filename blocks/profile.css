@@ -9,7 +9,6 @@
 }
 
 .profile__image {
-  /* width: 100%; */
   max-width: 120px;
   border-radius: 50%;
   display: flex;
@@ -98,6 +97,10 @@
     margin-top: 42px;
     display: flex;
     flex-direction: column;
+  }
+
+  .profile__card-image {
+    margin: 0 auto;
   }
 
   .profile__image {
