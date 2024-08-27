@@ -14,10 +14,10 @@
       <!-- POPUP EDIT PROFILE -->
       <div class="popup"></div>
 
-      <div class="popup__container">
+      <div class="popup__container container-profile">
         <div class="popup__card">
           <h3 class="popup__title">Editar perfil</h3>
-          <form class="popup__input">
+          <form class="popup__input input-profile">
             <input
               class="input__text input__text-name"
               type="text"
@@ -30,13 +30,46 @@
               placeholder="Sobre mim"
               required
             />
-            <button type="submit" class="input__submit input__submit-add">
+            <button type="submit" class="input__submit input__submit-save">
               Salvar
             </button>
           </form>
-          <button class="popup__button-close" draggable="true"></button>
+          <button
+            class="popup__button-close button-closeProfile"
+            draggable="true"
+          ></button>
         </div>
       </div>
+      <!--  -->
+
+      <!-- POPUP ADD IMAGE -->
+      <div class="popup__container container-image">
+        <div class="popup__card">
+          <h3 class="popup__title">Novo local</h3>
+          <form class="popup__input input-image">
+            <input
+              class="input__text input__text-titulo"
+              type="text"
+              placeholder="Título"
+              required
+            />
+            <input
+              class="input__text input__text-image"
+              type="url"
+              placeholder="Link de imagem"
+              required
+            />
+            <button type="submit" class="input__submit input__submit-add">
+              Criar
+            </button>
+          </form>
+          <button
+            class="popup__button-close button-closeImage"
+            draggable="true"
+          ></button>
+        </div>
+      </div>
+
       <!--  -->
 
       <header class="header page__container">

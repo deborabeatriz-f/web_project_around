@@ -1,24 +1,43 @@
 // VARIABLES
-const modal = document.querySelector(".popup__container");
-const editButton = document.querySelector(".profile__button-edit");
-const addButton = document.querySelector(".input__submit-add");
-const closeEditButton = document.querySelector(".popup__button-close");
 const page = document.querySelector(".popup");
-const popupEditProfile = document.querySelector(".popup__input");
+const modalProfile = document.querySelector(".container-profile");
+const modalImage = document.querySelector(".container-image");
+const saveProfile = document.querySelector(".input__submit-save");
+const addImage = document.querySelector(".input__submit-add");
+const closeEditButton = document.querySelector(".button-closeProfile");
+const closeAddButton = document.querySelector(".button-closeImage");
+const popupEditProfile = document.querySelector(".input-profile");
+const popupAddImage = document.querySelector(".input-image");
+const editButton = document.querySelector(".profile__button-edit");
+const addImageButton = document.querySelector(".profile__button-add");
 
-// PROFILE EDIT POPUP OPEN
+// OPEN POPUP - PROFILE EDIT
 function appearEditPopUp() {
-  modal.style.display = "block";
+  modalProfile.style.display = "block";
   page.style.display = "block";
 }
 editButton.addEventListener("click", appearEditPopUp);
 
-// PROFILE EDIT POPUP CLOSE
+// CLOSE POPUP - PROFILE EDIT
 function closeEditPopUp() {
-  modal.style.display = "none";
+  modalProfile.style.display = "none";
   page.style.display = "none";
 }
 closeEditButton.addEventListener("click", closeEditPopUp);
+
+// OPEN POPUP - ADD IMAGE
+function appearAddPopUp() {
+  modalImage.style.display = "block";
+  page.style.display = "block";
+}
+addImageButton.addEventListener("click", appearAddPopUp);
+
+// CLOSE POPUP - ADD IMAGE
+function closeAddPopUp() {
+  modalImage.style.display = "none";
+  page.style.display = "none";
+}
+closeAddButton.addEventListener("click", closeAddPopUp);
 
 // GET PROFILE INFOS FROM INPUT
 function addProfileInfo(event) {
