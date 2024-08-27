@@ -9,6 +9,23 @@
   flex-direction: column;
   max-width: 282px;
   width: 100%;
+  position: relative;
+}
+
+.grid__card-delete {
+  background: transparent url("../images/trash-icon.png") no-repeat;
+  width: 18px;
+  height: 19px;
+  border: none;
+  background-size: contain;
+  cursor: pointer;
+  position: absolute;
+  top: 18px;
+  right: 15px;
+}
+
+.grid__card-delete:hover {
+  opacity: 60%;
 }
 
 .grid__card-image {
@@ -60,6 +77,10 @@
   width: 21px;
   height: 19px;
   background-size: contain;
+}
+
+.heart-clicked:hover {
+  cursor: pointer;
 }
 
 @media screen and (max-width: 1024px) {
