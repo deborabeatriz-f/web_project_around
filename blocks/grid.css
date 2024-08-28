@@ -1,7 +1,8 @@
-.grid {
+.grid__content {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 17px 20px;
+  position: relative;
 }
 
 .grid__card {
@@ -59,7 +60,6 @@
 
 .grid__button-heart {
   border: none;
-  background: transparent url("../images/heart_icon.png") no-repeat;
   width: 21px;
   height: 19px;
   background-size: contain;
@@ -69,18 +69,6 @@
   opacity: 50%;
   cursor: pointer;
   transition: 200ms ease-in-out;
-}
-
-.heart-clicked {
-  border: none;
-  background: transparent url("../images/heart-clicked.png") no-repeat;
-  width: 21px;
-  height: 19px;
-  background-size: contain;
-}
-
-.heart-clicked:hover {
-  cursor: pointer;
 }
 
 @media screen and (max-width: 1024px) {

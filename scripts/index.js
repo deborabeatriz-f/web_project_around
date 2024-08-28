@@ -12,7 +12,7 @@ const addImage = document.querySelector(".input__submit-add");
 const closeAddButton = document.querySelector(".button-closeImage");
 const popupAddImage = document.querySelector(".input-image");
 const addImageButton = document.querySelector(".profile__button-add");
-const cards = document.querySelector(".content");
+const cards = document.querySelector(".grid__content");
 const inputImageTitle = document.querySelector(".input__text-titulo");
 const inputImageUrl = document.querySelector(".input__text-image");
 
@@ -95,7 +95,7 @@ initialCards.forEach((card) => {
 });
 
 function createCard(card) {
-  const cardTemplate = document.querySelector(".grid").content;
+  const cardTemplate = document.querySelector(".grid__template").content;
   const cardElement = cardTemplate.querySelector(".grid__card").cloneNode(true);
   cardElement.querySelector(".grid__card-title").textContent = card.name;
   cardElement.querySelector(".grid__card-image").setAttribute("src", card.link);
