@@ -11,6 +11,54 @@
   </head>
   <body>
     <div class="page">
+      <header class="header page__container">
+        <nav class="nav">
+          <img
+            src="./images/logo_around.png"
+            alt="Logo Around The U.S."
+            class="nav__image"
+          />
+        </nav>
+
+        <section class="profile">
+          <div class="profile__card-image">
+            <img
+              src="./images/jacques_cousteau.png"
+              alt="Jacques Cousteau"
+              class="profile__image"
+            />
+          </div>
+          <div class="profile__card">
+            <h2 class="profile__title">Jacques Cousteau</h2>
+            <button class="profile__button-edit"></button>
+            <p class="profile__subtitle">Explorador</p>
+          </div>
+
+          <button class="profile__button-add"></button>
+        </section>
+      </header>
+
+      <main class="content page__container">
+        <template class="grid">
+          <div class="grid__card">
+            <button class="grid__card-delete"></button>
+            <img src="" alt="" class="grid__card-image" />
+            <div class="grid__card-text">
+              <h3 class="grid__card-title"></h3>
+              <img
+                src="../images/heart_icon.png"
+                alt="Like Button"
+                class="grid__button-heart"
+              />
+            </div>
+          </div>
+        </template>
+      </main>
+
+      <footer class="footer page__container">
+        <p>&copy; 2024 Around The U.S.</p>
+      </footer>
+
       <!-- POPUP EDIT PROFILE -->
       <div class="popup"></div>
 
@@ -69,153 +117,6 @@
         </div>
       </div>
       <!--  -->
-
-      <header class="header page__container">
-        <nav class="nav">
-          <img
-            src="./images/logo_around.png"
-            alt="Logo Around The U.S."
-            class="nav__image"
-          />
-        </nav>
-
-        <section class="profile">
-          <div class="profile__card-image">
-            <img
-              src="./images/jacques_cousteau.png"
-              alt="Jacques Cousteau"
-              class="profile__image"
-            />
-          </div>
-          <div class="profile__card">
-            <h2 class="profile__title">Jacques Cousteau</h2>
-            <button class="profile__button-edit"></button>
-            <p class="profile__subtitle">Explorador</p>
-          </div>
-
-          <button class="profile__button-add"></button>
-        </section>
-      </header>
-
-      <main class="content page__container">
-        <template class="grid">
-          <div class="grid__card">
-            <button class="grid__card-delete"></button>
-            <img src="" alt="" class="grid__card-image" />
-            <div class="grid__card-text">
-              <h3 class="grid__card-title"></h3>
-              <button
-                class="grid__button-heart"
-                id="grid__button-heart"
-              ></button>
-            </div>
-          </div>
-        </template>
-      </main>
-
-      <!-- <main class="content page__container">
-        <section class="grid">
-          <div class="grid__card">
-            <button class="grid__card-delete"></button>
-            <img
-              src="./images/vale_yosemite.png"
-              alt="Vale Yosemite"
-              class="grid__card-image"
-            />
-            <div class="grid__card-text">
-              <h3 class="grid__card-title">Vale Yosemite</h3>
-              <button
-                class="grid__button-heart"
-                id="grid__button-heart"
-              ></button>
-            </div>
-          </div>
-
-          <div class="grid__card">
-            <button class="grid__card-delete"></button>
-            <img
-              src="./images/lago_louise.png"
-              alt="Lago Louise"
-              class="grid__card-image"
-            />
-            <div class="grid__card-text">
-              <h3 class="grid__card-title">Lago Louise</h3>
-              <button
-                class="grid__button-heart"
-                id="grid__button-heart"
-              ></button>
-            </div>
-          </div>
-
-          <div class="grid__card">
-            <button class="grid__card-delete"></button>
-            <img
-              src="./images/montanhas_care.png"
-              alt="Montanhas Care"
-              class="grid__card-image"
-            />
-            <div class="grid__card-text">
-              <h3 class="grid__card-title">Montanhas Carecas</h3>
-              <button
-                class="grid__button-heart"
-                id="grid__button-heart"
-              ></button>
-            </div>
-          </div>
-
-          <div class="grid__card">
-            <button class="grid__card-delete"></button>
-            <img
-              src="./images/latemar.png"
-              alt="Latemar"
-              class="grid__card-image"
-            />
-            <div class="grid__card-text">
-              <h3 class="grid__card-title">Latemar</h3>
-              <button
-                class="grid__button-heart"
-                id="grid__button-heart"
-              ></button>
-            </div>
-          </div>
-
-          <div class="grid__card">
-            <button class="grid__card-delete"></button>
-            <img
-              src="./images/parque_nacional.png"
-              alt="Parque Nacional da Vanoise"
-              class="grid__card-image"
-            />
-            <div class="grid__card-text">
-              <h3 class="grid__card-title">Parque Nacional da Vanoise</h3>
-              <button
-                class="grid__button-heart"
-                id="grid__button-heart"
-              ></button>
-            </div>
-          </div>
-
-          <div class="grid__card">
-            <button class="grid__card-delete"></button>
-            <img
-              src="./images/lago_di_braies.png"
-              alt="Lado Di Braies"
-              class="grid__card-image"
-            />
-            <div class="grid__card-text">
-              <h3 class="grid__card-title">Lado Di Braies</h3>
-              <button
-                class="grid__button-heart"
-                id="grid__button-heart"
-              ></button>
-            </div>
-          </div>
-        </section>
-      </main> -->
-
-      <footer class="footer page__container">
-        <p>&copy; 2024 Around The U.S.</p>
-      </footer>
     </div>
     <script src="./scripts/index.js"></script>
   </body>
