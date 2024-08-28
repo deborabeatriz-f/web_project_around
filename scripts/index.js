@@ -12,7 +12,7 @@ const addImage = document.querySelector(".input__submit-add");
 const closeAddButton = document.querySelector(".button-closeImage");
 const popupAddImage = document.querySelector(".input-image");
 const addImageButton = document.querySelector(".profile__button-add");
-const cards = document.querySelector(".page__container");
+const cards = document.querySelector(".content");
 const inputImageTitle = document.querySelector(".input__text-titulo");
 const inputImageUrl = document.querySelector(".input__text-image");
 
@@ -88,10 +88,38 @@ const initialCards = [
   },
 ];
 
+// CARDS IMAGE GRID
 initialCards.forEach((card) => {
   const newCard = createCard(card);
   cards.prepend(newCard);
 });
+
+function createCard(card) {
+  const cardTemplate = document.querySelector(".grid").content;
+  const cardElement = cardTemplate.querySelector(".grid__card").cloneNode(true);
+  cardElement.querySelector(".grid__card-title").textContent = card.name;
+  cardElement.querySelector(".grid__card-image").setAttribute("src", card.link);
+  cardElement.querySelector(".grid__card-image").setAttribute("alt", card.name);
+
+  // HEART(LIKE) BUTTON
+  cardElement
+    .querySelector(".grid__button-heart")
+    .addEventListener("click", (event) => {
+      if (event.target.getAttribute("src") === "../images/heart_icon.png") {
+        return event.target.setAttribute("src", "../images/heart-clicked.png");
+      }
+      return event.target.setAttribute("src", "../images/heart_icon.png");
+    });
+
+  // DELETE BUTTON
+  cardElement
+    .querySelector(".grid__card-delete")
+    .addEventListener("click", (event) => {
+      event.target.parentElement.remove();
+    });
+
+  return cardElement;
+}
 
 // ADD NEW CARD IMAGE
 function addImageCard(event) {
@@ -102,7 +130,6 @@ function addImageCard(event) {
       name: inputImageTitle.value,
       link: inputImageUrl.value,
     });
-
     cards.prepend(newCard);
     inputImageTitle.value = "";
     inputImageUrl.value = "";
@@ -110,29 +137,17 @@ function addImageCard(event) {
 }
 addImage.addEventListener("click", addImageCard);
 
-// CARDS IMAGE GRID
-function createCard(card) {
-  const cardTemplate = document.querySelector(".grid").content;
-  const cardElement = cardTemplate.querySelector(".grid__card").cloneNode(true);
+// HEART(LIKE) BUTTON - Sprint 7
+// const hearts = document.querySelectorAll("#grid__button-heart");
 
-  cardElement.querySelector(".grid__card-title").textContent = card.name;
-  cardElement.querySelector(".grid__card-image").setAttribute("src", card.link);
-  cardElement.querySelector(".grid__card-image").setAttribute("src", card.name);
-
-  return cardElement;
-}
-
-// HEART(LIKE) BUTTON
-const hearts = document.querySelectorAll("#grid__button-heart");
-
-function heartButton(event) {
-  let heart = event.target;
-  if (heart.classList.contains("grid__button-heart")) {
-    heart.classList.remove("grid__button-heart");
-    heart.classList.add("heart-clicked");
-  } else {
-    heart.classList.remove("heart-clicked");
-    heart.classList.add("grid__button-heart");
-  }
-}
-hearts.forEach((heart) => heart.addEventListener("click", heartButton));
+// function heartButton(event) {
+//   let heart = event.target;
+//   if (heart.classList.contains("grid__button-heart")) {
+//     heart.classList.remove("grid__button-heart");
+//     heart.classList.add("heart-clicked");
+//   } else {
+//     heart.classList.remove("heart-clicked");
+//     heart.classList.add("grid__button-heart");
+//   }
+// }
+// hearts.forEach((heart) => heart.addEventListener("click", heartButton));
