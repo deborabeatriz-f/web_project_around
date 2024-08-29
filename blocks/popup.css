@@ -33,7 +33,6 @@
   box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.15);
   animation: 1s drop;
 }
-
 @keyframes drop {
   0% {
     top: -100px;
@@ -99,6 +98,54 @@
 
 .input__submit:hover {
   opacity: 80%;
+}
+
+.popup__bigImage-container {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 75vh;
+  width: 75vw;
+  z-index: 3;
+}
+
+.popup__bigImage-card {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+.popoup__buttonClose-bigImage {
+  background: transparent url("../images/close-icon.png") center no-repeat;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  right: -40px;
+  top: -40px;
+  width: 40px;
+  height: 40px;
+}
+
+.popoup__buttonClose-bigImage:hover {
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+.popup__open-bigImage {
+  height: 540px;
+  width: 816px;
+}
+
+.popup__subtitle-bigImage {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 14.52px;
+  text-align: left;
+  width: 290px;
+  height: 12px;
+  position: absolute;
 }
 
 /* @media screen and (max-width: 1024px) {
