@@ -110,10 +110,10 @@ function createCard(card) {
   cardElement
     .querySelector(".grid__button-heart")
     .addEventListener("click", (event) => {
-      if (event.target.getAttribute("src") === "../images/heart_icon.png") {
-        return event.target.setAttribute("src", "../images/heart-clicked.png");
+      if (event.target.getAttribute("src") === "./images/heart_icon.png") {
+        return event.target.setAttribute("src", "./images/heart-clicked.png");
       }
-      return event.target.setAttribute("src", "../images/heart_icon.png");
+      return event.target.setAttribute("src", "./images/heart_icon.png");
     });
 
   // DELETE BUTTON
