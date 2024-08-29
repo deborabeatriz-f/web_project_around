@@ -16,6 +16,11 @@ const cards = document.querySelector(".grid__content");
 const inputImageTitle = document.querySelector(".input__text-titulo");
 const inputImageUrl = document.querySelector(".input__text-image");
 
+const modalBigImage = document.querySelector(".popup__bigImage-container");
+const openBigImage = document.querySelector(".popup__open-bigImage");
+const subtitleBigImage = document.querySelector(".popup__subtitle-bigImage");
+const closeBigImage = document.querySelector(".popoup__buttonClose-bigImage");
+
 // OPEN POPUP - PROFILE EDIT
 function appearEditPopUp() {
   modalProfile.style.display = "block";
@@ -118,8 +123,27 @@ function createCard(card) {
       event.target.parentElement.remove();
     });
 
+  // OPEN POPUP BIG IMAGE
+  cardElement
+    .querySelector(".grid__card-image")
+    .addEventListener("click", (event) => {
+      openBigImage.setAttribute("src", card.link);
+      openBigImage.setAttribute("alt", card.name);
+      subtitleBigImage.textContent = card.name;
+
+      modalBigImage.style.display = "block";
+      page.style.display = "block";
+    });
+
   return cardElement;
 }
+
+// CLOSE POPUP BIG IMAGE
+function closeBigImagePopUp() {
+  modalBigImage.style.display = "none";
+  page.style.display = "none";
+}
+closeBigImage.addEventListener("click", closeBigImagePopUp);
 
 // ADD NEW CARD IMAGE
 function addImageCard(event) {
@@ -134,6 +158,7 @@ function addImageCard(event) {
     inputImageTitle.value = "";
     inputImageUrl.value = "";
   }
+  closeAddPopUp();
 }
 addImage.addEventListener("click", addImageCard);
 
