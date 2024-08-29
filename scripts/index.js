@@ -110,10 +110,10 @@ function createCard(card) {
   cardElement
     .querySelector(".grid__button-heart")
     .addEventListener("click", (event) => {
-      if (event.target.getAttribute("src") === "./images/heart_icon.png") {
-        return event.target.setAttribute("src", "./images/heart-clicked.png");
+      if (event.target.getAttribute("src") === "../images/heart_icon.png") {
+        return event.target.setAttribute("src", "../images/heart-clicked.png");
       }
-      return event.target.setAttribute("src", "./images/heart_icon.png");
+      return event.target.setAttribute("src", "../images/heart_icon.png");
     });
 
   // DELETE BUTTON
@@ -161,18 +161,3 @@ function addImageCard(event) {
   closeAddPopUp();
 }
 addImage.addEventListener("click", addImageCard);
-
-// HEART(LIKE) BUTTON - Sprint 7
-// const hearts = document.querySelectorAll("#grid__button-heart");
-
-// function heartButton(event) {
-//   let heart = event.target;
-//   if (heart.classList.contains("grid__button-heart")) {
-//     heart.classList.remove("grid__button-heart");
-//     heart.classList.add("heart-clicked");
-//   } else {
-//     heart.classList.remove("heart-clicked");
-//     heart.classList.add("grid__button-heart");
-//   }
-// }
-// hearts.forEach((heart) => heart.addEventListener("click", heartButton));
