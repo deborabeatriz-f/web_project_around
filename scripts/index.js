@@ -1,6 +1,4 @@
 // VARIABLES
-const page = document.querySelector(".popup");
-
 const modalProfile = document.querySelector(".container-profile");
 const saveProfile = document.querySelector(".input__submit-save");
 const closeEditButton = document.querySelector(".button-closeProfile");
@@ -24,14 +22,12 @@ const closeBigImage = document.querySelector(".popoup__buttonClose-bigImage");
 // OPEN POPUP - PROFILE EDIT
 function appearEditPopUp() {
   modalProfile.style.display = "block";
-  page.style.display = "block";
 }
 editButton.addEventListener("click", appearEditPopUp);
 
 // CLOSE POPUP - PROFILE EDIT
 function closeEditPopUp() {
   modalProfile.style.display = "none";
-  page.style.display = "none";
 }
 closeEditButton.addEventListener("click", closeEditPopUp);
 
@@ -132,7 +128,6 @@ function createCard(card) {
       subtitleBigImage.textContent = card.name;
 
       modalBigImage.style.display = "block";
-      page.style.display = "block";
     });
 
   return cardElement;
@@ -141,7 +136,6 @@ function createCard(card) {
 // CLOSE POPUP BIG IMAGE
 function closeBigImagePopUp() {
   modalBigImage.style.display = "none";
-  page.style.display = "none";
 }
 closeBigImage.addEventListener("click", closeBigImagePopUp);
 
