@@ -72,7 +72,7 @@
 }
 
 @media screen and (max-width: 1024px) {
-  .grid {
+  .grid__content {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 17px 20px;
@@ -89,7 +89,7 @@
 }
 
 @media screen and (max-width: 720px) {
-  .grid {
+  .grid__content {
     grid-template-columns: 1fr;
     gap: 20px;
   }
