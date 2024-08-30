@@ -134,8 +134,8 @@
 }
 
 .popup__open-bigImage {
-  height: 540px;
-  width: 816px;
+  max-height: 540px;
+  max-width: 816px;
 }
 
 .popup__subtitle-bigImage {
