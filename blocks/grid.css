@@ -79,13 +79,13 @@
     max-width: 580px;
     margin: 0 auto;
   }
-}
 
-.grid__card {
-  display: flex;
-  flex-direction: column;
-  max-width: 282px;
-  width: 100%;
+  .grid__card {
+    display: flex;
+    flex-direction: column;
+    max-width: 282px;
+    width: 100%;
+  }
 }
 
 @media screen and (max-width: 720px) {
