@@ -92,5 +92,6 @@
   .grid__content {
     grid-template-columns: 1fr;
     gap: 20px;
+    max-width: 282px;
   }
 }
