@@ -11,7 +11,7 @@ The technologies used were HTML, CSS and Javascript applying BEM methodology in 
 ### Future Improvements:
 
 1. Create a feature so people can exchange their profile image.
-2. Enhance the grid photos feature so people can add more pictures to their wall.
+2. Create a pin for the user highlight the main photos on their wall, making this pin photos fixed as the firsts images in the grid image.
 
 ### GitHub Page:
 
