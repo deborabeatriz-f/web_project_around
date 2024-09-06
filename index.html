@@ -69,12 +69,16 @@
               class="input__text input__text-name"
               type="text"
               placeholder="Nome"
+              minlength="2"
+              maxlength="40"
               required
             />
             <input
               class="input__text input__text-job"
               type="text"
               placeholder="Sobre mim"
+              minlength="2"
+              maxlength="200"
               required
             />
             <button type="submit" class="input__submit input__submit-save">
@@ -97,6 +101,8 @@
               class="input__text input__text-titulo"
               type="text"
               placeholder="Título"
+              minlength="2"
+              maxlength=" 30"
               required
             />
             <input
@@ -120,14 +126,15 @@
       <div class="popup__bigImage-container">
         <div class="popup__bigImage-card">
           <div class="popup__bigImage-cardContainer">
-          <button class="popoup__buttonClose-bigImage"></button>
-          <img class="popup__open-bigImage" src="" alt="" />
-          <p class="popup__subtitle-bigImage"></p>
+            <button class="popoup__buttonClose-bigImage"></button>
+            <img class="popup__open-bigImage" src="" alt="" />
+            <p class="popup__subtitle-bigImage"></p>
           </div>
         </div>
       </div>
       <!--  -->
     </div>
     <script src="./scripts/index.js"></script>
+    <script src="./scripts/validate.js"></script>
   </body>
 </html>

@@ -108,6 +108,7 @@ function createCard(card) {
     .addEventListener("click", (event) => {
       if (event.target.getAttribute("src") === "../images/heart_icon.png") {
         return event.target.setAttribute("src", "../images/heart-clicked.png");
+        // trocar para chamar o heart-clicked pelo css
       }
       return event.target.setAttribute("src", "../images/heart_icon.png");
     });
@@ -155,3 +156,12 @@ function addImageCard(event) {
   closeAddPopUp();
 }
 addImage.addEventListener("click", addImageCard);
+
+//SPRINT 9
+
+//Sobreposição dos PopUps
+//Fecharem o pop-up clicando na sobreposição (qualquer lugar fora das bordas do pop-up).
+
+//Fechar janelas de PopUp pressionando a tecla ESC.
+
+// Heart(Like) Button, corrigir o "double click"
