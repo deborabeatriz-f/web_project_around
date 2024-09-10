@@ -64,23 +64,32 @@
       <div class="popup__container container-profile">
         <div class="popup__card">
           <h3 class="popup__title">Editar perfil</h3>
-          <form class="popup__input input-profile">
-            <input
-              class="input__text input__text-name"
-              type="text"
-              placeholder="Nome"
-              minlength="2"
-              maxlength="40"
-              required
-            />
-            <input
-              class="input__text input__text-job"
-              type="text"
-              placeholder="Sobre mim"
-              minlength="2"
-              maxlength="200"
-              required
-            />
+          <form class="popup__input input-profile" novalidate>
+            <div class="input-profile-wrap">
+              <input
+                class="input__text input__text-name"
+                id="name"
+                type="text"
+                placeholder="Nome"
+                minlength="2"
+                maxlength="40"
+                required
+              />
+              <p class="input__errorMessage"></p>
+            </div>
+
+            <div class="input__wrap">
+              <input
+                class="input__text input__text-job"
+                id="job"
+                type="text"
+                placeholder="Sobre mim"
+                minlength="2"
+                maxlength="200"
+                required
+              />
+              <p class="input__errorMessage"></p>
+            </div>
             <button type="submit" class="input__submit input__submit-save">
               Salvar
             </button>
@@ -96,21 +105,29 @@
       <div class="popup__container container-image">
         <div class="popup__card">
           <h3 class="popup__title">Novo local</h3>
-          <form class="popup__input input-image">
-            <input
-              class="input__text input__text-titulo"
-              type="text"
-              placeholder="Título"
-              minlength="2"
-              maxlength=" 30"
-              required
-            />
-            <input
-              class="input__text input__text-image"
-              type="url"
-              placeholder="Link de imagem"
-              required
-            />
+          <form class="popup__input input-image" novalidate>
+            <div class="input-image-wrap">
+              <input
+                class="input__text input__text-title"
+                id="title"
+                type="text"
+                placeholder="Título"
+                minlength="2"
+                maxlength=" 30"
+                required
+              />
+              <p class="input__errorMessage"></p>
+            </div>
+            <div class="input-image-wrap">
+              <input
+                class="input__text input__text-image"
+                id="url"
+                type="url"
+                placeholder="Link de imagem"
+                required
+              />
+              <p class="input__errorMessage"></p>
+            </div>
             <button type="submit" class="input__submit input__submit-add">
               Criar
             </button>
