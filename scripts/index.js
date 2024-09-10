@@ -1,3 +1,12 @@
+//SPRINT 9
+
+//Sobreposição dos PopUps
+//Fecharem o pop-up clicando na sobreposição (qualquer lugar fora das bordas do pop-up).
+
+//Fechar janelas de PopUp pressionando a tecla ESC.
+
+// Heart(Like) Button, corrigir o "double click"
+
 // VARIABLES
 const modalProfile = document.querySelector(".container-profile");
 const saveProfile = document.querySelector(".input__submit-save");
@@ -156,12 +165,3 @@ function addImageCard(event) {
   closeAddPopUp();
 }
 addImage.addEventListener("click", addImageCard);
-
-//SPRINT 9
-
-//Sobreposição dos PopUps
-//Fecharem o pop-up clicando na sobreposição (qualquer lugar fora das bordas do pop-up).
-
-//Fechar janelas de PopUp pressionando a tecla ESC.
-
-// Heart(Like) Button, corrigir o "double click"
