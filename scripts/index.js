@@ -20,7 +20,7 @@ const closeAddButton = document.querySelector(".button-closeImage");
 const popupAddImage = document.querySelector(".input-image");
 const addImageButton = document.querySelector(".profile__button-add");
 const cards = document.querySelector(".grid__content");
-const inputImageTitle = document.querySelector(".input__text-titulo");
+const inputImageTitle = document.querySelector(".input__text-title");
 const inputImageUrl = document.querySelector(".input__text-image");
 
 const modalBigImage = document.querySelector(".popup__bigImage-container");
