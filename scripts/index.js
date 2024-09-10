@@ -5,8 +5,6 @@
 
 //Fechar janelas de PopUp pressionando a tecla ESC.
 
-// Heart(Like) Button, corrigir o "double click"
-
 // VARIABLES
 const modalProfile = document.querySelector(".container-profile");
 const saveProfile = document.querySelector(".input__submit-save");
@@ -112,15 +110,20 @@ function createCard(card) {
   cardElement.querySelector(".grid__card-image").setAttribute("alt", card.name);
 
   // HEART(LIKE) BUTTON
-  cardElement
-    .querySelector(".grid__button-heart")
-    .addEventListener("click", (event) => {
-      if (event.target.getAttribute("src") === "../images/heart_icon.png") {
-        return event.target.setAttribute("src", "../images/heart-clicked.png");
-        // trocar para chamar o heart-clicked pelo css
+  cardElement.querySelectorAll(".grid__button-heart").forEach((buttonHeart) => {
+    buttonHeart.addEventListener("click", (event) => {
+      if (event.target.classList.contains("button-heart-unliked")) {
+        cardElement.querySelector(".button-heart-liked").style.display =
+          "block";
+        cardElement.querySelector(".button-heart-unliked").style.display =
+          "none";
+      } else {
+        cardElement.querySelector(".button-heart-unliked").style.display =
+          "block";
+        cardElement.querySelector(".button-heart-liked").style.display = "none";
       }
-      return event.target.setAttribute("src", "../images/heart_icon.png");
     });
+  });
 
   // DELETE BUTTON
   cardElement

@@ -71,6 +71,10 @@
   transition: 200ms ease-in-out;
 }
 
+.button-heart-liked {
+  display: none;
+}
+
 @media screen and (max-width: 1024px) {
   .grid__content {
     display: grid;
