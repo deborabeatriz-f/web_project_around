@@ -1,20 +1,6 @@
 //SPRINT 9
 
-//Agora oPopUp não está fechando quando aperto o botão "Submit"
-//Linha 68 e Linha 187
-
-//Fechar janelas de PopUp pressionando a tecla ESC.
-
-// function NomeDaFunção (event){
-//   if (event.key == "Esc") {
-//     modalProfile.style.display = "none";
-//   }
-// };
-//OndeAdicionarEvento???.addEventListener("keypress", NomeDaFunção);
-
 // VARIABLES
-// const modalContainer = document.querySelector(".popup__container");
-
 const modalProfile = document.querySelector(".container-profile");
 const saveProfile = document.querySelector(".input__submit-save");
 const closeEditButton = document.querySelector(".button-closeProfile");
@@ -53,6 +39,13 @@ function closeEditPopUp(event) {
 closeEditButton.addEventListener("click", closeEditPopUp);
 modalProfile.addEventListener("click", closeEditPopUp);
 
+function closeEditPopupWithEsc(event) {
+  if (event.key == "Escape") {
+    modalProfile.style.display = "none";
+  }
+}
+document.addEventListener("keydown", closeEditPopupWithEsc);
+
 // GET PROFILE INFOS FROM INPUT
 function addProfileInfo(event) {
   event.preventDefault();
@@ -65,7 +58,8 @@ function addProfileInfo(event) {
   name.textContent = addName.value;
   job.textContent = addJob.value;
 
-  closeEditPopUp();
+  popupEditProfile.reset();
+  modalProfile.style.display = "none";
 }
 popupEditProfile.addEventListener("submit", addProfileInfo);
 
@@ -86,6 +80,13 @@ function closeAddPopUp(event) {
 }
 closeAddButton.addEventListener("click", closeAddPopUp);
 modalImage.addEventListener("click", closeAddPopUp);
+
+function closeAddPopupWithEsc(event) {
+  if (event.key == "Escape") {
+    modalImage.style.display = "none";
+  }
+}
+document.addEventListener("keydown", closeAddPopupWithEsc);
 
 // INITIAL IMAGES - GRID CARD
 const initialCards = [
@@ -184,6 +185,6 @@ function addImageCard(event) {
     inputImageTitle.value = "";
     inputImageUrl.value = "";
   }
-  closeAddPopUp();
+  modalImage.style.display = "none";
 }
 addImage.addEventListener("click", addImageCard);
