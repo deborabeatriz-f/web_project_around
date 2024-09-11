@@ -1,11 +1,20 @@
 //SPRINT 9
 
-//Sobreposição dos PopUps
-//Fecharem o pop-up clicando na sobreposição (qualquer lugar fora das bordas do pop-up).
+//Agora oPopUp não está fechando quando aperto o botão "Submit"
+//Linha 68 e Linha 187
 
 //Fechar janelas de PopUp pressionando a tecla ESC.
 
+// function NomeDaFunção (event){
+//   if (event.key == "Esc") {
+//     modalProfile.style.display = "none";
+//   }
+// };
+//OndeAdicionarEvento???.addEventListener("keypress", NomeDaFunção);
+
 // VARIABLES
+// const modalContainer = document.querySelector(".popup__container");
+
 const modalProfile = document.querySelector(".container-profile");
 const saveProfile = document.querySelector(".input__submit-save");
 const closeEditButton = document.querySelector(".button-closeProfile");
@@ -33,10 +42,16 @@ function appearEditPopUp() {
 editButton.addEventListener("click", appearEditPopUp);
 
 // CLOSE POPUP - PROFILE EDIT
-function closeEditPopUp() {
-  modalProfile.style.display = "none";
+function closeEditPopUp(event) {
+  if (event.target == closeEditButton) {
+    modalProfile.style.display = "none";
+  }
+  if (event.target == modalProfile) {
+    modalProfile.style.display = "none";
+  }
 }
 closeEditButton.addEventListener("click", closeEditPopUp);
+modalProfile.addEventListener("click", closeEditPopUp);
 
 // GET PROFILE INFOS FROM INPUT
 function addProfileInfo(event) {
@@ -57,16 +72,20 @@ popupEditProfile.addEventListener("submit", addProfileInfo);
 // OPEN POPUP - ADD IMAGE
 function appearAddPopUp() {
   modalImage.style.display = "block";
-  page.style.display = "block";
 }
 addImageButton.addEventListener("click", appearAddPopUp);
 
 // CLOSE POPUP - ADD IMAGE
-function closeAddPopUp() {
-  modalImage.style.display = "none";
-  page.style.display = "none";
+function closeAddPopUp(event) {
+  if (event.target == closeAddButton) {
+    modalImage.style.display = "none";
+  }
+  if (event.target == modalImage) {
+    modalImage.style.display = "none";
+  }
 }
 closeAddButton.addEventListener("click", closeAddPopUp);
+modalImage.addEventListener("click", closeAddPopUp);
 
 // INITIAL IMAGES - GRID CARD
 const initialCards = [
