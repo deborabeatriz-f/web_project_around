@@ -45,12 +45,12 @@
             <img src="" alt="" class="grid__card-image" />
             <div class="grid__card-text">
               <h3 class="grid__card-title"></h3>
-             <img
+              <img
                 src="./images/heart_icon.png"
                 alt="Like Button"
                 class="grid__button-heart button-heart-unliked"
               />
-               <img
+              <img
                 src="./images/heart-clicked.png"
                 alt="Like Button"
                 class="grid__button-heart button-heart-liked"
@@ -70,7 +70,7 @@
         <div class="popup__card">
           <h3 class="popup__title">Editar perfil</h3>
           <form class="popup__input input-profile" novalidate>
-            <div class="input-profile-wrap">
+            <div class="input__wrap">
               <input
                 class="input__text input__text-name"
                 id="name"
@@ -95,7 +95,11 @@
               />
               <p class="input__errorMessage"></p>
             </div>
-            <button type="submit" class="input__submit input__submit-save">
+            <button
+              type="submit"
+              class="input__submit input__submit-save"
+              disabled
+            >
               Salvar
             </button>
           </form>
@@ -111,7 +115,7 @@
         <div class="popup__card">
           <h3 class="popup__title">Novo local</h3>
           <form class="popup__input input-image" novalidate>
-            <div class="input-image-wrap">
+            <div class="input__wrap">
               <input
                 class="input__text input__text-title"
                 id="title"
@@ -123,7 +127,7 @@
               />
               <p class="input__errorMessage"></p>
             </div>
-            <div class="input-image-wrap">
+            <div class="input__wrap">
               <input
                 class="input__text input__text-image"
                 id="url"
@@ -133,7 +137,11 @@
               />
               <p class="input__errorMessage"></p>
             </div>
-            <button type="submit" class="input__submit input__submit-add">
+            <button
+              type="submit"
+              class="input__submit input__submit-add"
+              disabled
+            >
               Criar
             </button>
           </form>

@@ -73,6 +73,3 @@ enableValidation({
   popupProfileButton: ".input__submit-save",
   popupCardButton: ".input__submit-add",
 });
-
-//   submitButtonSelector: ".popup__button",
-//   inactiveButtonClass: "popup__button_disabled",
