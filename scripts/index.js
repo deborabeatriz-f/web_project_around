@@ -1,5 +1,3 @@
-//SPRINT 9
-
 // VARIABLES
 const modalProfile = document.querySelector(".container-profile");
 const saveProfile = document.querySelector(".input__submit-save");
