@@ -42,7 +42,7 @@ function disableButton(item, config) {
 
 function checkValidation(event, config) {
   const input = event.target;
-  const isValid = input.validity.valid;
+  const isValid = input.validity.valid && !/^\s*$/.test(input.value);
   if (!isValid) {
     addErrorMessage(input, config);
     disableButton(input.id, config);
