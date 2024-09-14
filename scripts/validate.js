@@ -14,52 +14,39 @@ function removeErrorMessage(input, config) {
   input.classList.remove(config.inputErrorClass);
 }
 
-function enableButton(item, config) {
-  if (item == "name" || item == "job") {
-    const buttonProfile = document.querySelector(config.popupProfileButton);
-    buttonProfile.classList.remove("formButton_disabled");
-    buttonProfile.removeAttribute("disabled", true);
-  }
-  if (item == "title" || item == "url") {
-    const buttonImage = document.querySelector(config.popupCardButton);
-    buttonImage.classList.remove("formButton_disabled");
-    buttonImage.removeAttribute("disabled", true);
-  }
+function enableButton(form, config) {
+  const button = form.querySelector(config.popupButton);
+  button.classList.remove("formButton_disabled");
+  button.removeAttribute("disabled", true);
 }
 
-function disableButton(item, config) {
-  if (item == "name" || item == "job") {
-    const buttonProfile = document.querySelector(config.popupProfileButton);
-    buttonProfile.classList.add("formButton_disabled");
-    buttonProfile.setAttribute("disabled", true);
-  }
-  if (item == "title" || item == "url") {
-    const buttonImage = document.querySelector(config.popupCardButton);
-    buttonImage.classList.add("formButton_disabled");
-    buttonImage.setAttribute("disabled", true);
-  }
+function disableButton(form, config) {
+  const button = form.querySelector(config.popupButton);
+  button.classList.add("formButton_disabled");
+  button.setAttribute("disabled", true);
 }
 
-function checkValidation(event, config) {
+function checkValidation(form, event, config) {
   const input = event.target;
   const isValid = input.validity.valid && !/^\s*$/.test(input.value);
   if (!isValid) {
     addErrorMessage(input, config);
-    disableButton(input.id, config);
+    disableButton(form, config);
   } else {
     removeErrorMessage(input, config);
-    enableButton(input.id, config);
+  }
+  if (form.checkValidity()) {
+    enableButton(form, config);
   }
 }
 
 function enableValidation(config) {
   const forms = Array.from(document.querySelectorAll(config.formSelector));
-
   for (const form of forms) {
     const inputs = Array.from(form.querySelectorAll(config.inputSelector));
     for (const input of inputs) {
       input.addEventListener("input", (event) => {
-        checkValidation(event, config);
+        checkValidation(form, event, config);
       });
     }
   }
@@ -70,6 +57,7 @@ enableValidation({
   inputSelector: "input",
   inputErrorClass: "invalid-input",
   errorClass: "input__errorMessage-show",
-  popupProfileButton: ".input__submit-save",
-  popupCardButton: ".input__submit-add",
+  popupButton: ".input__submit",
+  // popupProfileButton: ".input__submit-save",
+  // popupCardButton: ".input__submit-add",
 });

@@ -57,6 +57,8 @@ function addProfileInfo(event) {
   job.textContent = addJob.value;
 
   popupEditProfile.reset();
+  saveProfile.classList.add("formButton_disabled");
+  saveProfile.setAttribute("disabled", true);
   modalProfile.style.display = "none";
 }
 popupEditProfile.addEventListener("submit", addProfileInfo);
@@ -183,6 +185,8 @@ function addImageCard(event) {
     inputImageTitle.value = "";
     inputImageUrl.value = "";
   }
+  addImage.classList.add("formButton_disabled");
+  addImage.setAttribute("disabled", true);
   modalImage.style.display = "none";
 }
 addImage.addEventListener("click", addImageCard);
