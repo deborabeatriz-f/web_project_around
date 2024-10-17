@@ -1,3 +1,14 @@
+import FormValidator from "./FormValidator.js";
+
+// função que tem um objeto como parametro
+const config = {
+  formSelector: "form",
+  inputSelector: "input",
+  inputErrorClass: "invalid-input",
+  errorClass: "input__errorMessage-show",
+  popupButton: ".input__submit",
+};
+
 // VARIABLES
 const modalProfile = document.querySelector(".container-profile");
 const saveProfile = document.querySelector(".input__submit-save");
@@ -18,12 +29,6 @@ const modalBigImage = document.querySelector(".popup__bigImage-container");
 const openBigImage = document.querySelector(".popup__open-bigImage");
 const subtitleBigImage = document.querySelector(".popup__subtitle-bigImage");
 const closeBigImage = document.querySelector(".popoup__buttonClose-bigImage");
-
-// OPEN POPUP - PROFILE EDIT
-function appearEditPopUp() {
-  modalProfile.style.display = "block";
-}
-editButton.addEventListener("click", appearEditPopUp);
 
 // CLOSE POPUP - PROFILE EDIT
 function closeEditPopUp(event) {
@@ -61,7 +66,15 @@ function addProfileInfo(event) {
   saveProfile.setAttribute("disabled", true);
   modalProfile.style.display = "none";
 }
+const formProfileValidator = new FormValidator(config, popupEditProfile);
 popupEditProfile.addEventListener("submit", addProfileInfo);
+
+// OPEN POPUP - PROFILE EDIT
+function appearEditPopUp() {
+  formProfileValidator.enableValidation();
+  modalProfile.style.display = "block";
+}
+editButton.addEventListener("click", appearEditPopUp);
 
 // OPEN POPUP - ADD IMAGE
 function appearAddPopUp() {
