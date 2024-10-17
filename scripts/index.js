@@ -30,25 +30,6 @@ const openBigImage = document.querySelector(".popup__open-bigImage");
 const subtitleBigImage = document.querySelector(".popup__subtitle-bigImage");
 const closeBigImage = document.querySelector(".popoup__buttonClose-bigImage");
 
-// CLOSE POPUP - PROFILE EDIT
-function closeEditPopUp(event) {
-  if (event.target == closeEditButton) {
-    modalProfile.style.display = "none";
-  }
-  if (event.target == modalProfile) {
-    modalProfile.style.display = "none";
-  }
-}
-closeEditButton.addEventListener("click", closeEditPopUp);
-modalProfile.addEventListener("click", closeEditPopUp);
-
-function closeEditPopupWithEsc(event) {
-  if (event.key == "Escape") {
-    modalProfile.style.display = "none";
-  }
-}
-document.addEventListener("keydown", closeEditPopupWithEsc);
-
 // GET PROFILE INFOS FROM INPUT
 function addProfileInfo(event) {
   event.preventDefault();
@@ -76,30 +57,24 @@ function appearEditPopUp() {
 }
 editButton.addEventListener("click", appearEditPopUp);
 
-// OPEN POPUP - ADD IMAGE
-function appearAddPopUp() {
-  modalImage.style.display = "block";
-}
-addImageButton.addEventListener("click", appearAddPopUp);
-
-// CLOSE POPUP - ADD IMAGE
-function closeAddPopUp(event) {
-  if (event.target == closeAddButton) {
-    modalImage.style.display = "none";
+// CLOSE POPUP - PROFILE EDIT
+function closeEditPopUp(event) {
+  if (event.target == closeEditButton) {
+    modalProfile.style.display = "none";
   }
-  if (event.target == modalImage) {
-    modalImage.style.display = "none";
+  if (event.target == modalProfile) {
+    modalProfile.style.display = "none";
   }
 }
-closeAddButton.addEventListener("click", closeAddPopUp);
-modalImage.addEventListener("click", closeAddPopUp);
+closeEditButton.addEventListener("click", closeEditPopUp);
+modalProfile.addEventListener("click", closeEditPopUp);
 
-function closeAddPopupWithEsc(event) {
+function closeEditPopupWithEsc(event) {
   if (event.key == "Escape") {
-    modalImage.style.display = "none";
+    modalProfile.style.display = "none";
   }
 }
-document.addEventListener("keydown", closeAddPopupWithEsc);
+document.addEventListener("keydown", closeEditPopupWithEsc);
 
 // INITIAL IMAGES - GRID CARD
 const initialCards = [
@@ -202,4 +177,31 @@ function addImageCard(event) {
   addImage.setAttribute("disabled", true);
   modalImage.style.display = "none";
 }
+const formImageValidator = new FormValidator(config, popupAddImage);
 addImage.addEventListener("click", addImageCard);
+
+// OPEN POPUP - ADD IMAGE
+function appearAddPopUp() {
+  formImageValidator.enableValidation();
+  modalImage.style.display = "block";
+}
+addImageButton.addEventListener("click", appearAddPopUp);
+
+// CLOSE POPUP - ADD IMAGE
+function closeAddPopUp(event) {
+  if (event.target == closeAddButton) {
+    modalImage.style.display = "none";
+  }
+  if (event.target == modalImage) {
+    modalImage.style.display = "none";
+  }
+}
+closeAddButton.addEventListener("click", closeAddPopUp);
+modalImage.addEventListener("click", closeAddPopUp);
+
+function closeAddPopupWithEsc(event) {
+  if (event.key == "Escape") {
+    modalImage.style.display = "none";
+  }
+}
+document.addEventListener("keydown", closeAddPopupWithEsc);
