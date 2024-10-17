@@ -40,6 +40,7 @@ function checkValidation(form, event, config) {
   }
 }
 
+// função com o parametro CONFIG que é o objeto da linha 57
 function enableValidation(config) {
   const forms = Array.from(document.querySelectorAll(config.formSelector));
   for (const form of forms) {
@@ -52,12 +53,11 @@ function enableValidation(config) {
   }
 }
 
+// função que tem um objeto como parametro
 enableValidation({
   formSelector: "form",
   inputSelector: "input",
   inputErrorClass: "invalid-input",
   errorClass: "input__errorMessage-show",
   popupButton: ".input__submit",
-  // popupProfileButton: ".input__submit-save",
-  // popupCardButton: ".input__submit-add",
 });
