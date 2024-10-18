@@ -40,6 +40,7 @@ export default class FormValidator {
     } else {
       this._removeErrorMessage(input);
     }
+
     if (form.checkValidity()) {
       this._enableButton(form);
     }

@@ -1,2 +1,2 @@
 // guardar funções que uso em muitos lugares
-// exemplo: abrir popups
+// exemplo: abrir e fechar popups
