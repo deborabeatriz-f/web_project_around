@@ -1,6 +1,9 @@
 import FormValidator from "./FormValidator.js";
 import Card from "./Card.js";
 
+// adicionar outras funções e variaveis de utils.js
+import { initialCards, closePopUp, closePopUpProfile } from "./utils.js";
+
 // função que tem um objeto como parametro
 const config = {
   formSelector: ".popup__input",
@@ -10,26 +13,17 @@ const config = {
   popupButton: ".input__submit",
 };
 
-// VARIABLES
-const modalProfile = document.querySelector(".container-profile");
-const saveProfile = document.querySelector(".input__submit-save");
-const closeEditButton = document.querySelector(".button-closeProfile");
-const popupEditProfile = document.querySelector(".input-profile");
-const editButton = document.querySelector(".profile__button-edit");
 
-const modalImage = document.querySelector(".container-image");
+// variaveis popup editar perfil
+const saveProfile = document.querySelector(".input__submit-save");
+const popupEditProfile = document.querySelector(".input-profile");
+
+//variaveis popup adicionar imagem
 const addImage = document.querySelector(".input__submit-add");
-const closeAddButton = document.querySelector(".button-closeImage");
 const popupAddImage = document.querySelector(".input-image");
-const addImageButton = document.querySelector(".profile__button-add");
 const cards = document.querySelector(".grid__content");
 const inputImageTitle = document.querySelector(".input__text-title");
 const inputImageUrl = document.querySelector(".input__text-image");
-
-const modalBigImage = document.querySelector(".popup__bigImage-container");
-const openBigImage = document.querySelector(".popup__open-bigImage");
-const subtitleBigImage = document.querySelector(".popup__subtitle-bigImage");
-const closeBigImage = document.querySelector(".popoup__buttonClose-bigImage");
 
 // GET PROFILE INFOS FROM INPUT
 function addProfileInfo(event) {
@@ -46,64 +40,11 @@ function addProfileInfo(event) {
   popupEditProfile.reset();
   saveProfile.classList.add("formButton_disabled");
   saveProfile.setAttribute("disabled", true);
-  modalProfile.style.display = "none";
+  closePopUpProfile();
 }
 const formProfileValidator = new FormValidator(config, popupEditProfile);
+formProfileValidator.enableValidation();
 popupEditProfile.addEventListener("submit", addProfileInfo);
-
-// OPEN POPUP - PROFILE EDIT
-function appearEditPopUp() {
-  formProfileValidator.enableValidation();
-  modalProfile.style.display = "block";
-}
-editButton.addEventListener("click", appearEditPopUp);
-
-// CLOSE POPUP - PROFILE EDIT
-function closeEditPopUp(event) {
-  if (event.target == closeEditButton) {
-    modalProfile.style.display = "none";
-  }
-  if (event.target == modalProfile) {
-    modalProfile.style.display = "none";
-  }
-}
-closeEditButton.addEventListener("click", closeEditPopUp);
-modalProfile.addEventListener("click", closeEditPopUp);
-
-function closeEditPopupWithEsc(event) {
-  if (event.key == "Escape") {
-    modalProfile.style.display = "none";
-  }
-}
-document.addEventListener("keydown", closeEditPopupWithEsc);
-
-// INITIAL IMAGES - GRID CARD
-const initialCards = [
-  {
-    name: "Vale de Yosemite",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_yosemite.jpg",
-  },
-  {
-    name: "Lago Louise",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_lake-louise.jpg",
-  },
-  {
-    name: "Montanhas Carecas",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_bald-mountains.jpg",
-  },
-  {
-    name: "Latemar",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_latemar.jpg",
-  },
-  {
-    name: "Parque Nacional da Vanoise ",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_vanoise.jpg",
-  },
-  {
-    name: "Lago di Braies",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_lago.jpg",
-  },
-];
 
 // CARDS IMAGE GRID
 initialCards.forEach((cardContent) => {
@@ -112,13 +53,7 @@ initialCards.forEach((cardContent) => {
   cards.prepend(newCard);
 });
 
-// CLOSE POPUP BIG IMAGE - utils
-function closeBigImagePopUp() {
-  modalBigImage.style.display = "none";
-}
-closeBigImage.addEventListener("click", closeBigImagePopUp);
-
-// ADD NEW CARD IMAGE
+// ADD NEW CARD IMAGE - deve ficar aqui no index.js???
 function addImageCard(event) {
   event.preventDefault();
   if (inputImageTitle.value != "" && inputImageUrl.value != "") {
@@ -136,33 +71,8 @@ function addImageCard(event) {
   }
   addImage.classList.add("formButton_disabled");
   addImage.setAttribute("disabled", true);
-  modalImage.style.display = "none";
+  closePopUp();
 }
 const formImageValidator = new FormValidator(config, popupAddImage);
+formImageValidator.enableValidation();
 addImage.addEventListener("click", addImageCard);
-
-// OPEN POPUP - ADD IMAGE
-function appearAddPopUp() {
-  formImageValidator.enableValidation();
-  modalImage.style.display = "block";
-}
-addImageButton.addEventListener("click", appearAddPopUp);
-
-// CLOSE POPUP - ADD IMAGE
-function closeAddPopUp(event) {
-  if (event.target == closeAddButton) {
-    modalImage.style.display = "none";
-  }
-  if (event.target == modalImage) {
-    modalImage.style.display = "none";
-  }
-}
-closeAddButton.addEventListener("click", closeAddPopUp);
-modalImage.addEventListener("click", closeAddPopUp);
-
-function closeAddPopupWithEsc(event) {
-  if (event.key == "Escape") {
-    modalImage.style.display = "none";
-  }
-}
-document.addEventListener("keydown", closeAddPopupWithEsc);
