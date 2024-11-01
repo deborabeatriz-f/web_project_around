@@ -7,14 +7,14 @@
     <meta name="description" content="Around Project" />
     <meta name="keywords" content="HTML, CSS, Javascript" />
     <title>Project Around The U.S.</title>
-    <link rel="stylesheet" href="./pages/index.css" />
+    <!-- <link rel="stylesheet" href="./pages/index.css" /> -->
   </head>
   <body>
     <div class="page">
       <header class="header page__container">
         <nav class="nav">
           <img
-            src="./images/logo_around.png"
+            src="<%=require('./images/logo_around.png')%>"
             alt="Logo Around The U.S."
             class="nav__image"
           />
@@ -23,7 +23,7 @@
         <section class="profile">
           <div class="profile__card-image">
             <img
-              src="./images/jacques_cousteau.png"
+              src="<%=require('./images/jacques_cousteau.png')%>"
               alt="Jacques Cousteau"
               class="profile__image"
             />
@@ -46,12 +46,12 @@
             <div class="grid__card-text">
               <h3 class="grid__card-title"></h3>
               <img
-                src="./images/heart_icon.png"
+                src="<%=require('./images/heart_icon.png')%>"
                 alt="Like Button"
                 class="grid__button-heart button-heart-unliked"
               />
               <img
-                src="./images/heart-clicked.png"
+                src="<%=require('./images/heart-clicked.png')%>"
                 alt="Like Button"
                 class="grid__button-heart button-heart-liked"
               />
@@ -164,7 +164,7 @@
       </div>
       <!--  -->
     </div>
-    <script type="module" src="./scripts/index.js"></script>
+    <script type="module" src="./pages/index.js"></script>
     <!-- <script src="./scripts/validate.js"></script> -->
   </body>
 </html>

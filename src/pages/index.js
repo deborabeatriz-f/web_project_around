@@ -1,8 +1,15 @@
-import FormValidator from "./FormValidator.js";
-import Card from "./Card.js";
+import "./index.css";
+
+import FormValidator from "../components/FormValidator.js";
+import Card from "../components/Card.js";
+import Section from "../components/Section.js";
 
 // adicionar outras funções e variaveis de utils.js
-import { initialCards, closePopUp, closePopUpProfile } from "./utils.js";
+import {
+  initialCards,
+  closePopUp,
+  closePopUpProfile,
+} from "../components/utils.js";
 
 // função que tem um objeto como parametro
 const config = {
@@ -12,7 +19,6 @@ const config = {
   errorClass: "input__errorMessage-show",
   popupButton: ".input__submit",
 };
-
 
 // variaveis popup editar perfil
 const saveProfile = document.querySelector(".input__submit-save");
