@@ -9,6 +9,8 @@ import {
   initialCards,
   closePopUp,
   closePopUpProfile,
+  format,
+  cards,
 } from "../components/utils.js";
 
 // função que tem um objeto como parametro
@@ -27,7 +29,7 @@ const popupEditProfile = document.querySelector(".input-profile");
 //variaveis popup adicionar imagem
 const addImage = document.querySelector(".input__submit-add");
 const popupAddImage = document.querySelector(".input-image");
-const cards = document.querySelector(".grid__content");
+// const cards = document.querySelector(".grid__content");
 const inputImageTitle = document.querySelector(".input__text-title");
 const inputImageUrl = document.querySelector(".input__text-image");
 
@@ -52,14 +54,33 @@ const formProfileValidator = new FormValidator(config, popupEditProfile);
 formProfileValidator.enableValidation();
 popupEditProfile.addEventListener("submit", addProfileInfo);
 
-// CARDS IMAGE GRID
-initialCards.forEach((cardContent) => {
-  const card = new Card(cardContent, ".grid__template");
-  const newCard = card.createCard();
-  cards.prepend(newCard);
-});
+//-----------------------------------------------------------------
+// SPRINT 11
 
-// ADD NEW CARD IMAGE - deve ficar aqui no index.js???
+function renderCards(cardContent) {
+  const card = new Card(cardContent, format.cardTemplate);
+  const newCard = card.createCard();
+  // cards.prepend(newCard);
+  sectionCards.setItem(newCard);
+}
+
+const sectionCards = new Section(
+  { items: initialCards, renderer: renderCards },
+  format
+);
+sectionCards.renderItems();
+
+//-----------------------------------------------------------------
+
+// CARDS IMAGE GRID
+
+// initialCards.forEach((cardContent) => {
+//   // const card = new Card(cardContent, ".grid__template");
+//   // const newCard = card.createCard();
+//   // cards.prepend(newCard);
+// });
+
+// ADD NEW CARD IMAGE
 function addImageCard(event) {
   event.preventDefault();
   if (inputImageTitle.value != "" && inputImageUrl.value != "") {

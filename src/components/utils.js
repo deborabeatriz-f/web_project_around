@@ -26,6 +26,18 @@ export const initialCards = [
   },
 ];
 
+//-----------------------------------------------------------------
+// SPRINT 11
+
+export const cards = document.querySelector(".grid__content");
+
+export const format = {
+  cardTemplate: ".grid__template",
+  cards,
+};
+
+//-----------------------------------------------------------------
+
 const closeAddButton = document.querySelector(".button-closeImage");
 const addImageButton = document.querySelector(".profile__button-add");
 const modalImage = document.querySelector(".container-image");
@@ -81,8 +93,8 @@ function closeEditPopUp(event) {
 closeEditButton.addEventListener("click", closeEditPopUp);
 modalProfile.addEventListener("click", closeEditPopUp);
 
-export function closePopUpProfile(){
-   modalProfile.style.display = "none";
+export function closePopUpProfile() {
+  modalProfile.style.display = "none";
 }
 
 function closeEditPopupWithEsc(event) {
