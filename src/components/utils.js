@@ -37,12 +37,12 @@ export const format = {
 
 //-----------------------------------------------------------------
 
-const closeAddButton = document.querySelector(".button-closeImage");
+// const closeAddButton = document.querySelector(".button-closeImage");
 const addImageButton = document.querySelector(".profile__button-add");
 const modalImage = document.querySelector(".container-image");
 
 const modalProfile = document.querySelector(".container-profile");
-const closeEditButton = document.querySelector(".button-closeProfile");
+// const closeEditButton = document.querySelector(".button-closeProfile");
 export const editButton = document.querySelector(".profile__button-edit");
 export const addName = document.querySelector(".input__text-name");
 export const addJob = document.querySelector(".input__text-job");
@@ -73,7 +73,6 @@ function closeAddPopupWithEsc(event) {
   }
 }
 document.addEventListener("keydown", closeAddPopupWithEsc);
-
 
 export function appearEditPopUp(userProfileInfo) {
   modalProfile.style.display = "block";
