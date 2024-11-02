@@ -1,17 +1,23 @@
 import "./index.css";
-
 import FormValidator from "../components/FormValidator.js";
 import Card from "../components/Card.js";
 import Section from "../components/Section.js";
-
-// adicionar outras funções e variaveis de utils.js
+import UserInfo from "../components/UserInfo.js";
+import PopupWithForm from "../components/PopupWithForm.js";
+import PopupWithImage from "../components/PopupWithImage.js";
 import {
   initialCards,
   closePopUp,
   closePopUpProfile,
   format,
   cards,
+  editButton,
+  appearEditPopUp,
+  addName,
+  addJob,
 } from "../components/utils.js";
+
+const userInfo = new UserInfo(".profile__title", ".profile__subtitle");
 
 // função que tem um objeto como parametro
 const config = {
@@ -22,28 +28,18 @@ const config = {
   popupButton: ".input__submit",
 };
 
-// variaveis popup editar perfil
 const saveProfile = document.querySelector(".input__submit-save");
 const popupEditProfile = document.querySelector(".input-profile");
 
-//variaveis popup adicionar imagem
 const addImage = document.querySelector(".input__submit-add");
 const popupAddImage = document.querySelector(".input-image");
-// const cards = document.querySelector(".grid__content");
 const inputImageTitle = document.querySelector(".input__text-title");
 const inputImageUrl = document.querySelector(".input__text-image");
 
-// GET PROFILE INFOS FROM INPUT
 function addProfileInfo(event) {
   event.preventDefault();
 
-  const name = document.querySelector(".profile__title");
-  const job = document.querySelector(".profile__subtitle");
-  const addName = document.querySelector(".input__text-name");
-  const addJob = document.querySelector(".input__text-job");
-
-  name.textContent = addName.value;
-  job.textContent = addJob.value;
+  userInfo.setUserInfo(addName.value, addJob.value);
 
   popupEditProfile.reset();
   saveProfile.classList.add("formButton_disabled");
@@ -54,13 +50,16 @@ const formProfileValidator = new FormValidator(config, popupEditProfile);
 formProfileValidator.enableValidation();
 popupEditProfile.addEventListener("submit", addProfileInfo);
 
-//-----------------------------------------------------------------
+editButton.addEventListener("click", () =>
+  appearEditPopUp(userInfo.getUserInfo())
+);
+
+// ---------------------  CARDS  --------------------------------
 // SPRINT 11
 
 function renderCards(cardContent) {
   const card = new Card(cardContent, format.cardTemplate);
   const newCard = card.createCard();
-  // cards.prepend(newCard);
   sectionCards.setItem(newCard);
 }
 
@@ -72,15 +71,6 @@ sectionCards.renderItems();
 
 //-----------------------------------------------------------------
 
-// CARDS IMAGE GRID
-
-// initialCards.forEach((cardContent) => {
-//   // const card = new Card(cardContent, ".grid__template");
-//   // const newCard = card.createCard();
-//   // cards.prepend(newCard);
-// });
-
-// ADD NEW CARD IMAGE
 function addImageCard(event) {
   event.preventDefault();
   if (inputImageTitle.value != "" && inputImageUrl.value != "") {

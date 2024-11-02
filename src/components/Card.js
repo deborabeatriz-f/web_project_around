@@ -4,7 +4,6 @@ export default class Card {
     this._template = template;
   }
 
-  // metodo publico
   createCard() {
     const cardTemplate = document.querySelector(this._template).content;
     this._cardElement = cardTemplate
@@ -31,7 +30,6 @@ export default class Card {
     this._closeImage();
   }
 
-  // HEART(LIKE) BUTTON - metodo privado para ser manipulador
   _likeButton() {
     this._cardElement
       .querySelectorAll(".grid__button-heart")
@@ -56,7 +54,6 @@ export default class Card {
       });
   }
 
-  // DELETE BUTTON - metodo privado para ser manipulador
   _deleteCard() {
     this._cardElement
       .querySelector(".grid__card-delete")
@@ -65,9 +62,7 @@ export default class Card {
       });
   }
 
-  // OPEN POPUP BIG IMAGE - deve ir para utils.js
   _expandImage() {
-    // popup ampliar imagem
     const modalBigImage = document.querySelector(".popup__bigImage-container");
     const openBigImage = document.querySelector(".popup__open-bigImage");
     const subtitleBigImage = document.querySelector(
@@ -85,7 +80,6 @@ export default class Card {
       });
   }
 
-  // CLOSE POPUP BIG IMAGE - deve ir para utils.js
   _closeImage() {
     const closeBigImage = document.querySelector(
       ".popoup__buttonClose-bigImage"

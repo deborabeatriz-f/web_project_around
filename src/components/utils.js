@@ -1,4 +1,3 @@
-// INITIAL IMAGES - GRID CARD
 export const initialCards = [
   {
     name: "Vale de Yosemite",
@@ -44,15 +43,15 @@ const modalImage = document.querySelector(".container-image");
 
 const modalProfile = document.querySelector(".container-profile");
 const closeEditButton = document.querySelector(".button-closeProfile");
-const editButton = document.querySelector(".profile__button-edit");
+export const editButton = document.querySelector(".profile__button-edit");
+export const addName = document.querySelector(".input__text-name");
+export const addJob = document.querySelector(".input__text-job");
 
-// OPEN POPUP - ADD IMAGE
 function appearAddPopUp() {
   modalImage.style.display = "block";
 }
 addImageButton.addEventListener("click", appearAddPopUp);
 
-// CLOSE POPUP - ADD IMAGE
 function closeAddPopUp(event) {
   if (event.target == closeAddButton) {
     modalImage.style.display = "none";
@@ -75,13 +74,14 @@ function closeAddPopupWithEsc(event) {
 }
 document.addEventListener("keydown", closeAddPopupWithEsc);
 
-// OPEN POPUP - PROFILE EDIT
-function appearEditPopUp() {
+
+export function appearEditPopUp(userProfileInfo) {
   modalProfile.style.display = "block";
+  addName.value = userProfileInfo.name;
+  addJob.value = userProfileInfo.about;
 }
 editButton.addEventListener("click", appearEditPopUp);
 
-// CLOSE POPUP - PROFILE EDIT
 function closeEditPopUp(event) {
   if (event.target == closeEditButton) {
     modalProfile.style.display = "none";
