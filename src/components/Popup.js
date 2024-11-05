@@ -28,9 +28,12 @@ export default class Popup {
     const closeButton = this._popup.querySelector(".popup__button-close");
     closeButton.addEventListener("click", this.close);
     this._popup.addEventListener("click", (event) => {
-      if (event.target.classList.contains("popup__opened")){
+      if (
+        event.target.classList.contains("popup__opened") ||
+        event.target.classList.contains("popup__bigImage-card")
+      ) {
         this.close();
       }
-    })
+    });
   }
 }
