@@ -1,7 +1,8 @@
 export default class Card {
-  constructor(cardData, template) {
+  constructor(cardData, template, openImagePopup) {
     this._cardData = cardData;
     this._template = template;
+    this._openImagePopup = openImagePopup;
   }
 
   createCard() {
@@ -27,7 +28,6 @@ export default class Card {
     this._likeButton();
     this._deleteCard();
     this._expandImage();
-    this._closeImage();
   }
 
   _likeButton() {
@@ -63,31 +63,13 @@ export default class Card {
   }
 
   _expandImage() {
-    const modalBigImage = document.querySelector(".popup__bigImage-container");
-    const openBigImage = document.querySelector(".popup__open-bigImage");
-    const subtitleBigImage = document.querySelector(
-      ".popup__subtitle-bigImage"
-    );
-
     this._cardElement
       .querySelector(".grid__card-image")
-      .addEventListener("click", (event) => {
-        openBigImage.setAttribute("src", this._cardData.link);
-        openBigImage.setAttribute("alt", this._cardData.name);
-        subtitleBigImage.textContent = this._cardData.name;
-
-        modalBigImage.style.display = "block";
+      .addEventListener("click", () => {
+        this._openImagePopup({
+          link: this._cardData.link,
+          name: this._cardData.name,
+        });
       });
-  }
-
-  _closeImage() {
-    const closeBigImage = document.querySelector(
-      ".popoup__buttonClose-bigImage"
-    );
-    const modalBigImage = document.querySelector(".popup__bigImage-container");
-
-    closeBigImage.addEventListener("click", () => {
-      modalBigImage.style.display = "none";
-    });
   }
 }

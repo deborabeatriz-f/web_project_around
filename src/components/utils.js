@@ -27,9 +27,6 @@ export const initialCards = [
   },
 ];
 
-//-----------------------------------------------------------------
-// SPRINT 11
-
 export const cards = document.querySelector(".grid__content");
 
 export const format = {
@@ -37,35 +34,16 @@ export const format = {
   cards,
 };
 
-//-----------------------------------------------------------------
-
 const closeAddButton = document.querySelector(".button-closeImage");
 const addImageButton = document.querySelector(".profile__button-add");
-// const modalImage = document.querySelector(".container-image");
 
-// const modalProfile = document.querySelector(".container-profile");
 const closeEditButton = document.querySelector(".button-closeProfile");
 export const editButton = document.querySelector(".profile__button-edit");
 export const addName = document.querySelector(".input__text-name");
 export const addJob = document.querySelector(".input__text-job");
 
-
-addImageButton.addEventListener("click", popupAddCard.open());
-closeAddButton.addEventListener("click", popupAddCard.close());
-
-// export function closePopUp() {
-//   modalImage.style.display = "none";
-// }
+addImageButton.addEventListener("click", () => popupAddCard.open());
+closeAddButton.addEventListener("click", () => popupAddCard.close());
 
 closeEditButton.addEventListener("click", () => popupEditProfile.close());
 
-// export function closePopUpProfile() {
-//   modalProfile.style.display = "none";
-// }
-
-// function closeEditPopupWithEsc(event) {
-//   if (event.key == "Escape") {
-//     modalProfile.style.display = "none";
-//   }
-// }
-// document.addEventListener("keydown", closeEditPopupWithEsc);

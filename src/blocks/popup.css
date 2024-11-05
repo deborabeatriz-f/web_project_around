@@ -132,7 +132,7 @@
   background: rgba(0, 0, 0, 0.8);
 }
 
-.popup__bigImage-container {
+/* .popup__bigImage-container {
   background: rgba(0, 0, 0, 0.5);
   display: none;
   position: fixed;
@@ -141,7 +141,7 @@
   width: 100%;
   height: 100%;
   z-index: 3;
-}
+} */
 
 .popup__bigImage-card {
   display: flex;

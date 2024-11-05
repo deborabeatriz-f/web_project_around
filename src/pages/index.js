@@ -50,7 +50,8 @@ function addImageCard(values) {
         name: values.name,
         link: values.link,
       },
-      ".grid__template"
+      ".grid__template",
+      (card) => popupImage.open(card)
     );
     const newCard = card.createCard();
     cards.prepend(newCard);
@@ -61,6 +62,13 @@ function addImageCard(values) {
 }
 export const popupAddCard = new PopupWithForm(".container-image", addImageCard);
 popupAddCard.setEventListeners();
+
+const popupImage = new PopupWithImage(
+  ".popup__bigImage-container",
+  ".popup__open-bigImage",
+  ".popup__subtitle-bigImage"
+);
+popupImage.setEventListeners();
 
 const saveProfile = document.querySelector(".input__submit-save");
 
@@ -74,11 +82,11 @@ editButton.addEventListener("click", () => {
   popupEditProfile.open();
 });
 
-// ---------------------  CARDS  --------------------------------
-// SPRINT 11
-
 function renderCards(cardContent) {
-  const card = new Card(cardContent, format.cardTemplate);
+  const card = new Card(cardContent, format.cardTemplate, (card) =>
+    popupImage.open(card)
+  );
+
   const newCard = card.createCard();
   sectionCards.setItem(newCard);
 }
@@ -88,8 +96,6 @@ const sectionCards = new Section(
   format
 );
 sectionCards.renderItems();
-
-//-----------------------------------------------------------------
 
 const formImageValidator = new FormValidator(config, popupAddImage);
 formImageValidator.enableValidation();
