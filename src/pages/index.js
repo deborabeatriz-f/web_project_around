@@ -7,12 +7,12 @@ import PopupWithForm from "../components/PopupWithForm.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 import {
   initialCards,
-  closePopUp,
-  closePopUpProfile,
+  // closePopUp,
+  // closePopUpProfile,
   format,
   cards,
   editButton,
-  appearEditPopUp,
+  // appearEditPopUp,
   addName,
   addJob,
 } from "../components/utils.js";
@@ -28,31 +28,51 @@ const config = {
   popupButton: ".input__submit",
 };
 
+function addProfileInfo(values) {
+  userInfo.setUserInfo(values.name, values.about);
+  saveProfile.classList.add("formButton_disabled");
+  saveProfile.setAttribute("disabled", true);
+}
+
+const formProfileValidator = new FormValidator(config, popupEditProfile);
+formProfileValidator.enableValidation();
+
+export const popupEditProfile = new PopupWithForm(
+  ".container-profile",
+  addProfileInfo
+);
+popupEditProfile.setEventListeners();
+
+function addImageCard(values) {
+  if (values.name != "" && values.link != "") {
+    const card = new Card(
+      {
+        name: values.name,
+        link: values.link,
+      },
+      ".grid__template"
+    );
+    const newCard = card.createCard();
+    cards.prepend(newCard);
+  }
+  addImage.classList.add("formButton_disabled");
+  addImage.setAttribute("disabled", true);
+  popupAddCard.close();
+}
+export const popupAddCard = new PopupWithForm(".container-image", addImageCard);
+popupAddCard.setEventListeners();
+
 const saveProfile = document.querySelector(".input__submit-save");
-const popupEditProfile = document.querySelector(".input-profile");
 
 const addImage = document.querySelector(".input__submit-add");
 const popupAddImage = document.querySelector(".input-image");
-const inputImageTitle = document.querySelector(".input__text-title");
-const inputImageUrl = document.querySelector(".input__text-image");
 
-function addProfileInfo(event) {
-  event.preventDefault();
-
-  userInfo.setUserInfo(addName.value, addJob.value);
-
-  popupEditProfile.reset();
-  saveProfile.classList.add("formButton_disabled");
-  saveProfile.setAttribute("disabled", true);
-  closePopUpProfile();
-}
-const formProfileValidator = new FormValidator(config, popupEditProfile);
-formProfileValidator.enableValidation();
-popupEditProfile.addEventListener("submit", addProfileInfo);
-
-editButton.addEventListener("click", () =>
-  appearEditPopUp(userInfo.getUserInfo())
-);
+editButton.addEventListener("click", () => {
+  const userProfileInfo = userInfo.getUserInfo();
+  addName.value = userProfileInfo.name;
+  addJob.value = userProfileInfo.about;
+  popupEditProfile.open();
+});
 
 // ---------------------  CARDS  --------------------------------
 // SPRINT 11
@@ -71,25 +91,5 @@ sectionCards.renderItems();
 
 //-----------------------------------------------------------------
 
-function addImageCard(event) {
-  event.preventDefault();
-  if (inputImageTitle.value != "" && inputImageUrl.value != "") {
-    const card = new Card(
-      {
-        name: inputImageTitle.value,
-        link: inputImageUrl.value,
-      },
-      ".grid__template"
-    );
-    const newCard = card.createCard();
-    cards.prepend(newCard);
-    inputImageTitle.value = "";
-    inputImageUrl.value = "";
-  }
-  addImage.classList.add("formButton_disabled");
-  addImage.setAttribute("disabled", true);
-  closePopUp();
-}
 const formImageValidator = new FormValidator(config, popupAddImage);
 formImageValidator.enableValidation();
-addImage.addEventListener("click", addImageCard);
