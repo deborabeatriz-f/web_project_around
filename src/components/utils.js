@@ -1,4 +1,5 @@
-// INITIAL IMAGES - GRID CARD
+import { popupEditProfile, popupAddCard } from "../pages/index.js";
+
 export const initialCards = [
   {
     name: "Vale de Yosemite",
@@ -26,68 +27,23 @@ export const initialCards = [
   },
 ];
 
+export const cards = document.querySelector(".grid__content");
+
+export const format = {
+  cardTemplate: ".grid__template",
+  cards,
+};
+
 const closeAddButton = document.querySelector(".button-closeImage");
 const addImageButton = document.querySelector(".profile__button-add");
-const modalImage = document.querySelector(".container-image");
 
-const modalProfile = document.querySelector(".container-profile");
 const closeEditButton = document.querySelector(".button-closeProfile");
-const editButton = document.querySelector(".profile__button-edit");
+export const editButton = document.querySelector(".profile__button-edit");
+export const addName = document.querySelector(".input__text-name");
+export const addJob = document.querySelector(".input__text-job");
 
-// OPEN POPUP - ADD IMAGE
-function appearAddPopUp() {
-  modalImage.style.display = "block";
-}
-addImageButton.addEventListener("click", appearAddPopUp);
+addImageButton.addEventListener("click", () => popupAddCard.open());
+closeAddButton.addEventListener("click", () => popupAddCard.close());
 
-// CLOSE POPUP - ADD IMAGE
-function closeAddPopUp(event) {
-  if (event.target == closeAddButton) {
-    modalImage.style.display = "none";
-  }
-  if (event.target == modalImage) {
-    modalImage.style.display = "none";
-  }
-}
-closeAddButton.addEventListener("click", closeAddPopUp);
-modalImage.addEventListener("click", closeAddPopUp);
+closeEditButton.addEventListener("click", () => popupEditProfile.close());
 
-export function closePopUp() {
-  modalImage.style.display = "none";
-}
-
-function closeAddPopupWithEsc(event) {
-  if (event.key == "Escape") {
-    modalImage.style.display = "none";
-  }
-}
-document.addEventListener("keydown", closeAddPopupWithEsc);
-
-// OPEN POPUP - PROFILE EDIT
-function appearEditPopUp() {
-  modalProfile.style.display = "block";
-}
-editButton.addEventListener("click", appearEditPopUp);
-
-// CLOSE POPUP - PROFILE EDIT
-function closeEditPopUp(event) {
-  if (event.target == closeEditButton) {
-    modalProfile.style.display = "none";
-  }
-  if (event.target == modalProfile) {
-    modalProfile.style.display = "none";
-  }
-}
-closeEditButton.addEventListener("click", closeEditPopUp);
-modalProfile.addEventListener("click", closeEditPopUp);
-
-export function closePopUpProfile(){
-   modalProfile.style.display = "none";
-}
-
-function closeEditPopupWithEsc(event) {
-  if (event.key == "Escape") {
-    modalProfile.style.display = "none";
-  }
-}
-document.addEventListener("keydown", closeEditPopupWithEsc);

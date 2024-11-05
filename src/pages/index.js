@@ -1,15 +1,23 @@
 import "./index.css";
-
 import FormValidator from "../components/FormValidator.js";
 import Card from "../components/Card.js";
 import Section from "../components/Section.js";
-
-// adicionar outras funções e variaveis de utils.js
+import UserInfo from "../components/UserInfo.js";
+import PopupWithForm from "../components/PopupWithForm.js";
+import PopupWithImage from "../components/PopupWithImage.js";
 import {
   initialCards,
-  closePopUp,
-  closePopUpProfile,
+  // closePopUp,
+  // closePopUpProfile,
+  format,
+  cards,
+  editButton,
+  // appearEditPopUp,
+  addName,
+  addJob,
 } from "../components/utils.js";
+
+const userInfo = new UserInfo(".profile__title", ".profile__subtitle");
 
 // função que tem um objeto como parametro
 const config = {
@@ -20,65 +28,74 @@ const config = {
   popupButton: ".input__submit",
 };
 
-// variaveis popup editar perfil
-const saveProfile = document.querySelector(".input__submit-save");
-const popupEditProfile = document.querySelector(".input-profile");
-
-//variaveis popup adicionar imagem
-const addImage = document.querySelector(".input__submit-add");
-const popupAddImage = document.querySelector(".input-image");
-const cards = document.querySelector(".grid__content");
-const inputImageTitle = document.querySelector(".input__text-title");
-const inputImageUrl = document.querySelector(".input__text-image");
-
-// GET PROFILE INFOS FROM INPUT
-function addProfileInfo(event) {
-  event.preventDefault();
-
-  const name = document.querySelector(".profile__title");
-  const job = document.querySelector(".profile__subtitle");
-  const addName = document.querySelector(".input__text-name");
-  const addJob = document.querySelector(".input__text-job");
-
-  name.textContent = addName.value;
-  job.textContent = addJob.value;
-
-  popupEditProfile.reset();
+function addProfileInfo(values) {
+  userInfo.setUserInfo(values.name, values.about);
   saveProfile.classList.add("formButton_disabled");
   saveProfile.setAttribute("disabled", true);
-  closePopUpProfile();
 }
+
 const formProfileValidator = new FormValidator(config, popupEditProfile);
 formProfileValidator.enableValidation();
-popupEditProfile.addEventListener("submit", addProfileInfo);
 
-// CARDS IMAGE GRID
-initialCards.forEach((cardContent) => {
-  const card = new Card(cardContent, ".grid__template");
-  const newCard = card.createCard();
-  cards.prepend(newCard);
-});
+export const popupEditProfile = new PopupWithForm(
+  ".container-profile",
+  addProfileInfo
+);
+popupEditProfile.setEventListeners();
 
-// ADD NEW CARD IMAGE - deve ficar aqui no index.js???
-function addImageCard(event) {
-  event.preventDefault();
-  if (inputImageTitle.value != "" && inputImageUrl.value != "") {
+function addImageCard(values) {
+  if (values.name != "" && values.link != "") {
     const card = new Card(
       {
-        name: inputImageTitle.value,
-        link: inputImageUrl.value,
+        name: values.name,
+        link: values.link,
       },
-      ".grid__template"
+      ".grid__template",
+      (card) => popupImage.open(card)
     );
     const newCard = card.createCard();
     cards.prepend(newCard);
-    inputImageTitle.value = "";
-    inputImageUrl.value = "";
   }
   addImage.classList.add("formButton_disabled");
   addImage.setAttribute("disabled", true);
-  closePopUp();
+  popupAddCard.close();
 }
+export const popupAddCard = new PopupWithForm(".container-image", addImageCard);
+popupAddCard.setEventListeners();
+
+const popupImage = new PopupWithImage(
+  ".popup__bigImage-container",
+  ".popup__open-bigImage",
+  ".popup__subtitle-bigImage"
+);
+popupImage.setEventListeners();
+
+const saveProfile = document.querySelector(".input__submit-save");
+
+const addImage = document.querySelector(".input__submit-add");
+const popupAddImage = document.querySelector(".input-image");
+
+editButton.addEventListener("click", () => {
+  const userProfileInfo = userInfo.getUserInfo();
+  addName.value = userProfileInfo.name;
+  addJob.value = userProfileInfo.about;
+  popupEditProfile.open();
+});
+
+function renderCards(cardContent) {
+  const card = new Card(cardContent, format.cardTemplate, (card) =>
+    popupImage.open(card)
+  );
+
+  const newCard = card.createCard();
+  sectionCards.setItem(newCard);
+}
+
+const sectionCards = new Section(
+  { items: initialCards, renderer: renderCards },
+  format
+);
+sectionCards.renderItems();
+
 const formImageValidator = new FormValidator(config, popupAddImage);
 formImageValidator.enableValidation();
-addImage.addEventListener("click", addImageCard);

@@ -65,7 +65,6 @@
       </footer>
 
       <!-- POPUP EDIT PROFILE -->
-
       <div class="popup__container container-profile">
         <div class="popup__card">
           <h3 class="popup__title">Editar perfil</h3>
@@ -74,6 +73,7 @@
               <input
                 class="input__text input__text-name"
                 id="name"
+                name="name"
                 type="text"
                 placeholder="Nome"
                 minlength="2"
@@ -87,6 +87,7 @@
               <input
                 class="input__text input__text-job"
                 id="job"
+                name="about"
                 type="text"
                 placeholder="Sobre mim"
                 minlength="2"
@@ -119,6 +120,7 @@
               <input
                 class="input__text input__text-title"
                 id="title"
+                name="name"
                 type="text"
                 placeholder="Título"
                 minlength="2"
@@ -131,6 +133,7 @@
               <input
                 class="input__text input__text-image"
                 id="url"
+                name="link"
                 type="url"
                 placeholder="Link de imagem"
                 required
@@ -153,10 +156,10 @@
       </div>
       <!--  -->
       <!-- POPUP IMAGE -->
-      <div class="popup__bigImage-container">
+      <div class="popup__container popup__bigImage-container">
         <div class="popup__bigImage-card">
           <div class="popup__bigImage-cardContainer">
-            <button class="popoup__buttonClose-bigImage"></button>
+            <button class="popup__button-close popoup__buttonClose-bigImage"></button>
             <img class="popup__open-bigImage" src="" alt="" />
             <p class="popup__subtitle-bigImage"></p>
           </div>
@@ -165,6 +168,5 @@
       <!--  -->
     </div>
     <script type="module" src="./pages/index.js"></script>
-    <!-- <script src="./scripts/validate.js"></script> -->
   </body>
 </html>
