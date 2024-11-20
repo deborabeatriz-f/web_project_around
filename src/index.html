@@ -27,6 +27,7 @@
               alt="Jacques Cousteau"
               class="profile__image"
             />
+            <button class="profile__btn-avatar"></button>
           </div>
           <div class="profile__card">
             <h2 class="profile__title">Jacques Cousteau</h2>
@@ -159,10 +160,59 @@
       <div class="popup__container popup__bigImage-container">
         <div class="popup__bigImage-card">
           <div class="popup__bigImage-cardContainer">
-            <button class="popup__button-close popoup__buttonClose-bigImage"></button>
+            <button
+              class="popup__button-close popoup__buttonClose-bigImage"
+            ></button>
             <img class="popup__open-bigImage" src="" alt="" />
             <p class="popup__subtitle-bigImage"></p>
           </div>
+        </div>
+      </div>
+      <!--  -->
+      <!-- POPUP DELETE CARD -->
+      <div class="popup__container popup__container-deleteCard">
+        <div class="popup__card">
+          <h3 class="popup__title">Tem certeza?</h3>
+          <form class="popup__input input-deleteCard" novalidate>
+            <button type="submit" class="input__submit input__submit-delete">
+              Sim
+            </button>
+          </form>
+          <button
+            class="popup__button-close button-closeDelete"
+            draggable="true"
+          ></button>
+        </div>
+      </div>
+      <!--  -->
+      <!-- POPUP EDIT AVATAR -->
+      <div class="popup__container popup__container-avatar">
+        <div class="popup__card">
+          <h3 class="popup__title">Alterar a foto de perfil</h3>
+          <form class="popup__input input-avatar" novalidate>
+            <div class="input__wrap">
+              <input
+                class="input__text input__text-avatar"
+                id="url"
+                name="avatar"
+                type="url"
+                placeholder="Link de imagem"
+                required
+              />
+              <p class="input__errorMessage"></p>
+            </div>
+            <button
+              type="submit"
+              class="input__submit input__submit-avatar"
+              disabled
+            >
+              Salvar
+            </button>
+          </form>
+          <button
+            class="popup__button-close button-closeAvatar"
+            draggable="true"
+          ></button>
         </div>
       </div>
       <!--  -->

@@ -6,7 +6,7 @@ import UserInfo from "../components/UserInfo.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 import {
-  initialCards,
+  // initialCards,
   // closePopUp,
   // closePopUpProfile,
   format,
@@ -16,10 +16,24 @@ import {
   addName,
   addJob,
 } from "../components/utils.js";
+import api from "../components/Api.js";
+import PopupWithConfirmation from "../components/PopupWithConfirmation.js";
 
-const userInfo = new UserInfo(".profile__title", ".profile__subtitle");
+const userInfo = new UserInfo(
+  ".profile__title",
+  ".profile__subtitle",
+  ".profile__image"
+);
 
-// função que tem um objeto como parametro
+// Informações do Usuário
+let userInfoObj;
+
+api.getUserInfo().then((result) => {
+  userInfoObj = result;
+  userInfo.setUserInfo(result.name, result.about, result.avatar);
+});
+
+// Função que tem um Objeto como Parametro
 const config = {
   formSelector: ".popup__input",
   inputSelector: "input",
@@ -28,8 +42,13 @@ const config = {
   popupButton: ".input__submit",
 };
 
+// Adicionar e Alterar Informações do Usuário
 function addProfileInfo(values) {
-  userInfo.setUserInfo(values.name, values.about);
+  userInfo.setUserInfo(values.name, values.about, userInfoObj.avatar);
+  saveProfile.textContent = "Salvando...";
+  api
+    .setUserInfo(values.name, values.about)
+    .finally(() => (saveProfile.textContent = "Salvar"));
   saveProfile.classList.add("formButton_disabled");
   saveProfile.setAttribute("disabled", true);
 }
@@ -43,7 +62,44 @@ export const popupEditProfile = new PopupWithForm(
 );
 popupEditProfile.setEventListeners();
 
+// Editar Avatar
+const popupAvatar = new PopupWithForm(".popup__container-avatar", editAvatar);
+popupAvatar.setEventListeners();
+
+const avatarBtn = document.querySelector(".profile__btn-avatar");
+avatarBtn.addEventListener("click", () => popupAvatar.open());
+
+function editAvatar(value) {
+  userInfo.setUserInfo(userInfoObj.name, userInfoObj.about, value.avatar);
+  const saveAvatar = document.querySelector(".input__submit-avatar");
+  saveAvatar.textContent = "Salvando...";
+  api
+    .setAvatar(value.avatar)
+    .finally(() => (saveAvatar.textContent = "Salvar"));
+}
+
+// Deletar Card
+const popupDeleteConfirmation = new PopupWithConfirmation(
+  ".popup__container-deleteCard",
+  (id, cardElement) => {
+    api.deleteCard(id).then(() => {
+      cardElement.remove();
+    });
+  }
+);
+popupDeleteConfirmation.setEventListeners();
+
+// Adicionar e Remover Like
+function handleLike(idCard, isLiked) {
+  if (!isLiked) {
+    return api.unlikedCard(idCard);
+  }
+  return api.likedCard(idCard);
+}
+
+// Adicionar Nome e Imagem no Card
 function addImageCard(values) {
+  addImage.textContent = "Criando...";
   if (values.name != "" && values.link != "") {
     const card = new Card(
       {
@@ -51,10 +107,16 @@ function addImageCard(values) {
         link: values.link,
       },
       ".grid__template",
-      (card) => popupImage.open(card)
+      (card) => popupImage.open(card),
+      (id, cardElement) => popupDeleteConfirmation.open(id, cardElement),
+      (idCard, isLiked) => handleLike(idCard, isLiked)
     );
     const newCard = card.createCard();
     cards.prepend(newCard);
+
+    api
+      .newCard(values.name, values.link)
+      .finally(() => (addImage.textContent = "Criar"));
   }
   addImage.classList.add("formButton_disabled");
   addImage.setAttribute("disabled", true);
@@ -82,20 +144,32 @@ editButton.addEventListener("click", () => {
   popupEditProfile.open();
 });
 
+// Cards Iniciais
 function renderCards(cardContent) {
-  const card = new Card(cardContent, format.cardTemplate, (card) =>
-    popupImage.open(card)
+  const card = new Card(
+    cardContent,
+    format.cardTemplate,
+    (card) => popupImage.open(card),
+    (id, cardElement) => popupDeleteConfirmation.open(id, cardElement),
+    (idCard, isLiked) => handleLike(idCard, isLiked)
   );
 
   const newCard = card.createCard();
   sectionCards.setItem(newCard);
 }
 
-const sectionCards = new Section(
-  { items: initialCards, renderer: renderCards },
-  format
-);
-sectionCards.renderItems();
+let sectionCards;
+
+api.getInitialCards().then((data) => {
+  sectionCards = new Section(
+    {
+      items: data,
+      renderer: (cardContent) => renderCards(cardContent),
+    },
+    format
+  );
+  sectionCards.renderItems();
+});
 
 const formImageValidator = new FormValidator(config, popupAddImage);
 formImageValidator.enableValidation();

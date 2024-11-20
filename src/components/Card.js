@@ -1,8 +1,16 @@
 export default class Card {
-  constructor(cardData, template, openImagePopup) {
+  constructor(
+    cardData,
+    template,
+    openImagePopup,
+    openPopupCofirmation,
+    handleLike
+  ) {
     this._cardData = cardData;
     this._template = template;
     this._openImagePopup = openImagePopup;
+    this._openPopupConfirmation = openPopupCofirmation;
+    this._handleLike = handleLike;
   }
 
   createCard() {
@@ -31,24 +39,30 @@ export default class Card {
   }
 
   _likeButton() {
+    const likedHeart = this._cardElement.querySelector(".button-heart-liked");
+    const unlikedHeart = this._cardElement.querySelector(
+      ".button-heart-unliked"
+    );
+
+    if (this._cardData.isLiked) {
+      likedHeart.style.display = "block";
+      unlikedHeart.style.display = "none";
+    }
+
     this._cardElement
       .querySelectorAll(".grid__button-heart")
       .forEach((buttonHeart) => {
         buttonHeart.addEventListener("click", (event) => {
           if (event.target.classList.contains("button-heart-unliked")) {
-            this._cardElement.querySelector(
-              ".button-heart-liked"
-            ).style.display = "block";
-            this._cardElement.querySelector(
-              ".button-heart-unliked"
-            ).style.display = "none";
+            // chama api e adiciona o like
+            this._handleLike(this._cardData._id, true);
+            likedHeart.style.display = "block";
+            unlikedHeart.style.display = "none";
           } else {
-            this._cardElement.querySelector(
-              ".button-heart-unliked"
-            ).style.display = "block";
-            this._cardElement.querySelector(
-              ".button-heart-liked"
-            ).style.display = "none";
+            // chama api e remove o like
+            this._handleLike(this._cardData._id, false);
+            unlikedHeart.style.display = "block";
+            likedHeart.style.display = "none";
           }
         });
       });
@@ -58,7 +72,10 @@ export default class Card {
     this._cardElement
       .querySelector(".grid__card-delete")
       .addEventListener("click", (event) => {
-        event.target.parentElement.remove();
+        this._openPopupConfirmation(
+          this._cardData._id,
+          event.target.parentElement
+        );
       });
   }
 
